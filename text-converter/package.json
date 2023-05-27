@@ -1,11 +1,11 @@
 {
-  "name": "text-converter",
+  "name": "text-convertor",
   "author": "icecreamparlor",
   "license": "MIT",
   "repository": "https://github.com/icecreamparlor/vscode-extensions",
   "displayName": "Text Converter",
   "description": "Text Converter for development",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "publisher": "icecreamparlor",
   "icon": "images/mipong.jpeg",
   "engines": {
