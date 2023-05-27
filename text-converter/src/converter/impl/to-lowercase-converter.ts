@@ -5,7 +5,7 @@ export class ToLowerCaseConverter implements Converter {
   isSupport(command: string): boolean {
     return command === COMMAND.ToLowerCase;
   }
-  convert(text: string): string {
+  async convert(text: string): Promise<string> {
     return text.toLowerCase();
   }
 }

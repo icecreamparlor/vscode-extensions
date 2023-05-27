@@ -6,7 +6,7 @@ export class XmlToJsonConverter implements Converter {
   isSupport(command: string): boolean {
     return command === COMMAND.XmlToJson;
   }
-  convert(text: string): string {
+  async convert(text: string): Promise<string> {
     return xmljs.xml2json(text, { compact: true, spaces: 2 });
   }
 }

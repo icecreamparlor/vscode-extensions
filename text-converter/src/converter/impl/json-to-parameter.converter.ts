@@ -6,7 +6,7 @@ export class Json5ToParameterConverter implements Converter {
   isSupport(command: string): boolean {
     return command === COMMAND.Json5ToParameter;
   }
-  convert(jsonString: string): string {
+  async convert(jsonString: string): Promise<string> {
     const json = JSON5.parse(jsonString);
     const params = new URLSearchParams();
     for (const key in json) {

@@ -5,7 +5,7 @@ export class Base64ToHexConverter implements Converter {
   isSupport(command: string): boolean {
     return command === COMMAND.Base64ToHex;
   }
-  convert(text: string): string {
+  async convert(text: string): Promise<string> {
     return Buffer.from(text, "base64").toString("hex");
   }
 }

@@ -7,7 +7,7 @@ export class Sha256Converter implements Converter {
   isSupport(command: string): boolean {
     return command === COMMAND.SHA256;
   }
-  convert(text: string): string {
+  async convert(text: string): Promise<string> {
     return crypto.createHash("sha256").update(text).digest("hex");
   }
 }

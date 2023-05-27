@@ -92,3 +92,7 @@ export function camelToSnake(camelCase: string) {
 export function snakeToCamel(snakeCase: string) {
   return snakeCase.replace(/(_\w)/g, (match) => match[1].toUpperCase());
 }
+
+export function isNotEmptyString(value: unknown): value is string {
+  return !!value && typeof value === "string" && value !== "";
+}

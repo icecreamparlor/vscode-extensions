@@ -6,7 +6,7 @@ export class Json5ToJsonConverter implements Converter {
   isSupport(command: string): boolean {
     return command === COMMAND.JSON5ToJson;
   }
-  convert(text: string): string {
+  async convert(text: string): Promise<string> {
     const obj = JSON5.parse(text);
     return JSON.stringify(obj, null, 2);
   }

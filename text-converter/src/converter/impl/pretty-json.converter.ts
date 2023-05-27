@@ -6,7 +6,7 @@ export class PrettyJsonConverter implements Converter {
   isSupport(command: string): boolean {
     return command === COMMAND.PrettyJson;
   }
-  convert(text: string): string {
+  async convert(text: string): Promise<string> {
     const obj = JSON5.parse(text);
     return JSON.stringify(obj, null, 2);
   }

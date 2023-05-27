@@ -5,7 +5,7 @@ export class ParameterToJsonConverter implements Converter {
   isSupport(command: string): boolean {
     return command === COMMAND.ParameterToJson;
   }
-  convert(parameter: string): string {
+ async  convert(parameter: string): Promise<string> {
     const params = new URLSearchParams(parameter);
     const json: Record<string, any> = {};
 

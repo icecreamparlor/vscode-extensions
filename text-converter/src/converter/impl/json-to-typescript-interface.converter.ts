@@ -8,7 +8,7 @@ export class Json5ToTypescriptInterfaceConverter implements Converter {
   isSupport(command: string): boolean {
     return command === COMMAND.JSON5ToTypescriptInterface;
   }
-  convert(jsonString: string): string {
+  async convert(jsonString: string): Promise<string> {
     const obj = JSON5.parse(jsonString);
 
     return JSONToTypescript(obj).reduce(

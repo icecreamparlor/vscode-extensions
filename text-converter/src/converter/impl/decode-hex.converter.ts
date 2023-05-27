@@ -5,7 +5,7 @@ export class DecodeHexConverter implements Converter {
   isSupport(command: string): boolean {
     return command === COMMAND.DecodeHex;
   }
-  convert(text: string): string {
+  async convert(text: string): Promise<string> {
     return Buffer.from(text, "hex").toString("utf-8");
   }
 }

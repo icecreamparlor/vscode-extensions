@@ -6,7 +6,7 @@ export class SnakeToCamelConverter implements Converter {
   isSupport(command: string): boolean {
     return command === COMMAND.SnakeToCamel;
   }
-  convert(text: string): string {
+  async convert(text: string): Promise<string> {
     return snakeToCamel(text);
   }
 }

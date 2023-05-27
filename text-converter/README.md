@@ -14,6 +14,9 @@ Text Converter Utils for development
   * *Plain Text To Base64*
   * *Plain Text To Hex*
   * *Plain Text To URL Encoded*
+* **Crypto**
+  * Encrypt AES-CBC
+  * Decrypt AES-CBC
 * **Code Style**
   * *Camel Case To Snake Case*
   * *Snake Case To Camel Case*

@@ -7,7 +7,7 @@ export class PrettyXmlConverter implements Converter {
   isSupport(command: string): boolean {
     return command === COMMAND.PrettyXml;
   }
-  convert(text: string): string {
+  async convert(text: string): Promise<string> {
     // XML 파싱
     const options = {
       spaces: 2,

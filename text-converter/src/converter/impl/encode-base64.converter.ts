@@ -5,7 +5,7 @@ export class EncodeBase64Converter implements Converter {
   isSupport(command: string): boolean {
     return command === COMMAND.EncodeBase64;
   }
-  convert(text: string): string {
+  async convert(text: string): Promise<string> {
     return Buffer.from(text).toString("base64");
   }
 }

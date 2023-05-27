@@ -5,7 +5,7 @@ export class ToUpperCaseConverter implements Converter {
   isSupport(command: string): boolean {
     return command === COMMAND.ToUpperCase;
   }
-  convert(text: string): string {
+  async convert(text: string): Promise<string> {
     return text.toUpperCase();
   }
 }

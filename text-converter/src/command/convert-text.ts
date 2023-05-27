@@ -14,7 +14,7 @@ export const convertText = wrap(async () => {
     (await selectMenu()) ?? die(new Error("Convert Type Not Selected"));
 
   const originalText = document.getText(range);
-  const convertedText = convertService.convert(command.label, originalText);
+  const convertedText = await convertService.convert(command.label, originalText);
 
   // Append the text to the document
   activeEditor.edit((editBuilder) => editBuilder.replace(range, convertedText));

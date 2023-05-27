@@ -5,7 +5,7 @@ export class MaskYyyyMMDdConverter implements Converter {
   isSupport(command: string): boolean {
     return command === COMMAND.MaskYyyyMMDd;
   }
-  convert(text: string): string {
+  async convert(text: string): Promise<string> {
     const regexes = [
       /(19\d{2}|20[0-9]{2})(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])/g,
       /(19\d{2}|20[0-9]{2})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])/g,

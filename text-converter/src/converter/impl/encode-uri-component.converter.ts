@@ -5,7 +5,7 @@ export class EncodeUriComponentConverter implements Converter {
   isSupport(command: string): boolean {
     return command === COMMAND.EncodeUriComponent;
   }
-  convert(text: string): string {
+  async convert(text: string): Promise<string> {
     return encodeURIComponent(text);
   }
 }

@@ -5,7 +5,7 @@ export class HttpToCurlConverter implements Converter {
   isSupport(command: string): boolean {
     return command === COMMAND.HTTPToCurl;
   }
-  convert(httpText: string): string {
+  async convert(httpText: string): Promise<string> {
     const lines = httpText.split("\n");
     let curlCommand = "curl";
 

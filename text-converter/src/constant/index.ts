@@ -6,9 +6,11 @@ import { CamelToSnakeConverter } from "../converter/impl/camel-to-snake.converte
 import { DecodeBase64Converter } from "../converter/impl/decode-base64.converter";
 import { DecodeHexConverter } from "../converter/impl/decode-hex.converter";
 import { DecodeUriComponentConverter } from "../converter/impl/decode-uri-component.converter";
+import { DecryptAesCvcConverter } from "../converter/impl/decrypt-aes-cvc.converter";
 import { EncodeBase64Converter } from "../converter/impl/encode-base64.converter";
 import { EncodeHexConverter } from "../converter/impl/encode-hex.converter";
 import { EncodeUriComponentConverter } from "../converter/impl/encode-uri-component.converter";
+import { EncryptAesCvcConverter } from "../converter/impl/encrypt-aes-cvc.converter";
 import { HexToBase64Converter } from "../converter/impl/hex-to-base64.converter";
 import { HttpToCurlConverter } from "../converter/impl/http-to-curl.converter";
 import { Json5ToParameterConverter } from "../converter/impl/json-to-parameter.converter";
@@ -29,17 +31,17 @@ import { XmlToJsonConverter } from "../converter/impl/xml-to-json.converter";
 export const EXTENSION_NAME = "text-converter";
 
 export const COMMAND = {
-  EncodeBase64: "encode-base64",
-  DecodeBase64: "decode-base64",
-  EncodeHex: "encode-hex",
-  DecodeHex: "decode-hex",
+  EncodeBase64: "plain-to-base64",
+  DecodeBase64: "base64-to-plain",
+  EncodeHex: "plain-to-hex",
+  DecodeHex: "hex-to-plain",
   HexToBase64: "hex-to-base64",
   Base64ToHex: "base64-to-hex",
   ToUpperCase: "to-upper-case",
   ToLowerCase: "to-lower-case",
   MaskYyyyMMDd: "mask-yyyy-MM-dd",
-  SHA256: "sha-256",
-  SHA512: "sha-512",
+  SHA256: "hash-sha-256",
+  SHA512: "hash-sha-512",
   PrettyJson: "pretty-json",
   PrettyXml: "pretty-xml",
   Json5ToParameter: "json5-to-parameter",
@@ -53,6 +55,8 @@ export const COMMAND = {
   JSON5ToTypescriptInterface: "json5-to-typescript-interface",
   XmlToJson: "xml-to-json",
   JSON5ToXml: "json5-to-xml",
+  EncryptAesCbc: "encrypt-aes-cbc",
+  DecryptAesCbc: "decrypt-aes-cbc",
 } as const;
 
 export const COMMAND_MENU: QuickPickItem[] = [
@@ -152,6 +156,14 @@ export const COMMAND_MENU: QuickPickItem[] = [
     label: COMMAND.XmlToJson,
     description: "XML To Json",
   },
+  {
+    label: COMMAND.EncryptAesCbc,
+    description: "Encrypt AES-CBC",
+  },
+  {
+    label: COMMAND.DecryptAesCbc,
+    description: "Decrypt AES-CBC",
+  },
 ];
 
 export const DEFAULT_CONVERTERS: Converter[] = [
@@ -178,6 +190,9 @@ export const DEFAULT_CONVERTERS: Converter[] = [
   /** XML */
   new Json5ToXmlConverter(),
   new XmlToJsonConverter(),
+  /** Crypto */
+  new EncryptAesCvcConverter(),
+  new DecryptAesCvcConverter(),
   /** Util */
   new Base64ToHexConverter(),
   new HexToBase64Converter(),

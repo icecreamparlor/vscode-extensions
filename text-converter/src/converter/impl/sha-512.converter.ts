@@ -7,7 +7,8 @@ export class Sha512Converter implements Converter {
   isSupport(command: string): boolean {
     return command === COMMAND.SHA512;
   }
-  convert(text: string): string {
+
+  async convert(text: string): Promise<string> {
     return crypto.createHash("sha512").update(text).digest("hex");
   }
 }

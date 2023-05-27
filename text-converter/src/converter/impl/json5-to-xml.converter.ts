@@ -7,7 +7,7 @@ export class Json5ToXmlConverter implements Converter {
   isSupport(command: string): boolean {
     return command === COMMAND.JSON5ToXml;
   }
-  convert(text: string): string {
+  async convert(text: string): Promise<string> {
     const obj = JSON5.parse(text);
 
     return xmljs.js2xml(obj, { compact: true, spaces: 2 });
