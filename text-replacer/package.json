@@ -1,8 +1,12 @@
 {
-  "name": "text-replacer",
-  "displayName": "text-replacer",
+  "name": "text-convertor",
+  "author": "icecreamparlor",
+  "repository": "https://github.com/icecreamparlor/vscode-extensions",
+  "displayName": "Text Replacer",
   "description": "",
   "version": "0.0.1",
+  "publisher": "icecreamparlor",
+  "icon": "images/mipong.jpeg",
   "engines": {
     "vscode": "^1.78.0"
   },
@@ -14,7 +18,7 @@
   "contributes": {
     "commands": [
       {
-        "command": "text-replacer.convert",
+        "command": "text-convertor.convert",
         "title": "Convertor - Convert Text"
       }
     ]
@@ -45,5 +49,8 @@
     "typescript": "^5.0.4",
     "webpack": "^5.81.0",
     "webpack-cli": "^5.0.2"
+  },
+  "dependencies": {
+    "xml-js": "^1.6.11"
   }
 }

@@ -14,6 +14,7 @@ export const COMMAND = {
   SHA256: "sha-256",
   SHA512: "sha-512",
   PrettyJson: "pretty-json",
+  PrettyXml: "pretty-xml",
   JsonToParameter: "json-to-parameter",
   ParameterToJson: "parameter-to-json",
   EncodeUriComponent: "encode-uri-component",
@@ -73,6 +74,10 @@ export const COMMAND_MENU: QuickPickItem[] = [
     description: "Text to Pretty Json",
   },
   {
+    label: COMMAND.PrettyXml,
+    description: "Text to Pretty XML",
+  },
+  {
     label: COMMAND.JsonToParameter,
     description: "Json to form-url-encoded Parameter",
   },
@@ -102,4 +107,4 @@ export const COMMAND_MENU: QuickPickItem[] = [
   },
 ];
 
-export const EXTENSION_NAME = "text-replacer";
+export const EXTENSION_NAME = "text-convertor";

@@ -13,6 +13,7 @@ import { JsonToParameterConvertor } from "../convertor/json-to-parameter.convert
 import { MaskYyyyMMDdConvertor } from "../convertor/mask-yyyy-MM-dd.convertor";
 import { ParameterToJsonConvertor } from "../convertor/parameter-to-json.convertor";
 import { PrettyJsonConvertor } from "../convertor/pretty-json.convertor";
+import { PrettyXmlConvertor } from "../convertor/pretty-xml.convertor";
 import { Sha256Convertor } from "../convertor/sha-256.convertor";
 import { Sha512Convertor } from "../convertor/sha-512.convertor";
 import { SnakeToCamelConvertor } from "../convertor/snake-to-camel.convertor";
@@ -56,13 +57,15 @@ export const convertService = new ConvertService([
   /** Convention */
   new CamelToSnakeConvertor(),
   new SnakeToCamelConvertor(),
+  /** Format */
+  new PrettyJsonConvertor(),
+  new PrettyXmlConvertor(),
   /** Util */
   new Base64ToHexConvertor(),
   new HexToBase64Convertor(),
   new ToUpperCaseConvertor(),
   new ToLowerCaseConvertor(),
   new MaskYyyyMMDdConvertor(),
-  new PrettyJsonConvertor(),
   new JsonToParameterConvertor(),
   new ParameterToJsonConvertor(),
 ]);

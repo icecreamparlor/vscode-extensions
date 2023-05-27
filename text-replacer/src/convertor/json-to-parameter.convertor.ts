@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import { COMMAND } from "../constant";
-import * as JSON5 from "../util/json5";
+import * as JSON5 from "../js/json5";
 import { Convertor } from "./convertor";
 
 export class JsonToParameterConvertor implements Convertor {
@@ -15,7 +15,7 @@ export class JsonToParameterConvertor implements Convertor {
         params.append(key, json[key]);
       }
     }
-    
+
     return params.toString();
   }
   onError(error: Error): void {
