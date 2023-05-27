@@ -1,3 +1,4 @@
+import * as vscode from "vscode";
 import { DEFAULT_CONVERTERS } from "../constant";
 import { Converter } from "../converter/converter";
 import { die } from "../util";
@@ -13,10 +14,24 @@ export class ConvertService {
     try {
       return converter.convert(text);
     } catch (e) {
-      converter.onError(e as Error);
+      const onError = converter.onError ?? this.defaultOnError;
+      onError(e as Error);
 
-      throw e;
+      return text;
     }
+  }
+
+  /**
+   * Default error handler
+   *
+   * @remarks This method is used when the converter does not have an error handler
+   * @param error - Error
+   */
+  private defaultOnError(error: Error) {
+    vscode.window.showErrorMessage("Text Convert Failed", {
+      modal: true,
+      detail: `${error.message}\n\n\n${error.stack}`,
+    });
   }
 }
 

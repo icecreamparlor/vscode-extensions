@@ -1,4 +1,3 @@
-import * as vscode from "vscode";
 import * as JSON5 from "../../js/json5";
 
 import JSONToTypescript from "json-to-ts";
@@ -16,8 +15,5 @@ export class Json5ToTypescriptInterfaceConverter implements Converter {
       (code, typescriptInterface) => `${code}\n\n${typescriptInterface}`,
       ""
     );
-  }
-  onError(error: Error): void {
-    vscode.window.showErrorMessage(error.message, error.stack ?? "");
   }
 }

@@ -9,7 +9,4 @@ export class DecodeUriComponentConverter implements Converter {
   convert(text: string): string {
     return decodeURIComponent(text);
   }
-  onError(error: Error): void {
-    vscode.window.showErrorMessage(error.message, error.stack ?? "");
-  }
 }

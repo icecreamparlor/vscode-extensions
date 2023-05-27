@@ -11,9 +11,10 @@ import { EncodeHexConverter } from "../converter/impl/encode-hex.converter";
 import { EncodeUriComponentConverter } from "../converter/impl/encode-uri-component.converter";
 import { HexToBase64Converter } from "../converter/impl/hex-to-base64.converter";
 import { HttpToCurlConverter } from "../converter/impl/http-to-curl.converter";
-import { JsonToParameterConverter } from "../converter/impl/json-to-parameter.converter";
+import { Json5ToParameterConverter } from "../converter/impl/json-to-parameter.converter";
 import { Json5ToTypescriptInterfaceConverter } from "../converter/impl/json-to-typescript-interface.converter";
 import { Json5ToJsonConverter } from "../converter/impl/json5-to-json.converter";
+import { Json5ToXmlConverter } from "../converter/impl/json5-to-xml.converter";
 import { MaskYyyyMMDdConverter } from "../converter/impl/mask-yyyy-MM-dd.converter";
 import { ParameterToJsonConverter } from "../converter/impl/parameter-to-json.converter";
 import { PrettyJsonConverter } from "../converter/impl/pretty-json.converter";
@@ -23,6 +24,9 @@ import { Sha512Converter } from "../converter/impl/sha-512.converter";
 import { SnakeToCamelConverter } from "../converter/impl/snake-to-camel.converter";
 import { ToLowerCaseConverter } from "../converter/impl/to-lowercase-converter";
 import { ToUpperCaseConverter } from "../converter/impl/to-uppercase-converter";
+import { XmlToJsonConverter } from "../converter/impl/xml-to-json.converter";
+
+export const EXTENSION_NAME = "text-converter";
 
 export const COMMAND = {
   EncodeBase64: "encode-base64",
@@ -38,7 +42,7 @@ export const COMMAND = {
   SHA512: "sha-512",
   PrettyJson: "pretty-json",
   PrettyXml: "pretty-xml",
-  JsonToParameter: "json-to-parameter",
+  Json5ToParameter: "json5-to-parameter",
   ParameterToJson: "parameter-to-json",
   EncodeUriComponent: "encode-uri-component",
   DecodeUriComponent: "decode-uri-component",
@@ -47,6 +51,8 @@ export const COMMAND = {
   CamelToSnake: "camel-to-snake",
   JSON5ToJson: "json5-to-json",
   JSON5ToTypescriptInterface: "json5-to-typescript-interface",
+  XmlToJson: "xml-to-json",
+  JSON5ToXml: "json5-to-xml",
 } as const;
 
 export const COMMAND_MENU: QuickPickItem[] = [
@@ -103,7 +109,7 @@ export const COMMAND_MENU: QuickPickItem[] = [
     description: "Text to Pretty XML",
   },
   {
-    label: COMMAND.JsonToParameter,
+    label: COMMAND.Json5ToParameter,
     description: "Json to form-url-encoded Parameter",
   },
   {
@@ -138,6 +144,14 @@ export const COMMAND_MENU: QuickPickItem[] = [
     label: COMMAND.JSON5ToTypescriptInterface,
     description: "JSON5 To Typescript Interface",
   },
+  {
+    label: COMMAND.JSON5ToXml,
+    description: "JSON5 To XML",
+  },
+  {
+    label: COMMAND.XmlToJson,
+    description: "XML To Json",
+  },
 ];
 
 export const DEFAULT_CONVERTERS: Converter[] = [
@@ -161,15 +175,17 @@ export const DEFAULT_CONVERTERS: Converter[] = [
   /** Format */
   new PrettyJsonConverter(),
   new PrettyXmlConverter(),
+  /** XML */
+  new Json5ToXmlConverter(),
+  new XmlToJsonConverter(),
   /** Util */
   new Base64ToHexConverter(),
   new HexToBase64Converter(),
   new ToUpperCaseConverter(),
   new ToLowerCaseConverter(),
   new MaskYyyyMMDdConverter(),
-  new JsonToParameterConverter(),
+  new Json5ToParameterConverter(),
   new ParameterToJsonConverter(),
   new Json5ToJsonConverter(),
   new Json5ToTypescriptInterfaceConverter(),
 ];
-export const EXTENSION_NAME = "text-converter";

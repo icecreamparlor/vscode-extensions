@@ -1,4 +1,3 @@
-import * as vscode from "vscode";
 import { COMMAND } from "../../constant";
 import { Converter } from "../converter";
 
@@ -17,8 +16,5 @@ export class MaskYyyyMMDdConverter implements Converter {
         ac.replace(regex, (match, yyyy, MM, dd) => match.replace(MM, "**")),
       text
     );
-  }
-  onError(error: Error): void {
-    vscode.window.showErrorMessage(error.message, error.stack ?? "");
   }
 }

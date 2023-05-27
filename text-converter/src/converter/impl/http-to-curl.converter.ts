@@ -1,4 +1,3 @@
-import * as vscode from "vscode";
 import { COMMAND } from "../../constant";
 import { Converter } from "../converter";
 
@@ -38,8 +37,5 @@ export class HttpToCurlConverter implements Converter {
     }
 
     return curlCommand;
-  }
-  onError(error: Error): void {
-    vscode.window.showErrorMessage(error.message, error.stack ?? "");
   }
 }

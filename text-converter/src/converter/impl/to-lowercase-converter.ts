@@ -1,4 +1,3 @@
-import * as vscode from "vscode";
 import { COMMAND } from "../../constant";
 import { Converter } from "../converter";
 
@@ -8,8 +7,5 @@ export class ToLowerCaseConverter implements Converter {
   }
   convert(text: string): string {
     return text.toLowerCase();
-  }
-  onError(error: Error): void {
-    vscode.window.showErrorMessage(error.message, error.stack ?? "");
   }
 }

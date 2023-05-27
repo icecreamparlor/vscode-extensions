@@ -1,11 +1,10 @@
-import * as vscode from "vscode";
 import { COMMAND } from "../../constant";
 import * as JSON5 from "../../js/json5";
 import { Converter } from "../converter";
 
-export class JsonToParameterConverter implements Converter {
+export class Json5ToParameterConverter implements Converter {
   isSupport(command: string): boolean {
-    return command === COMMAND.JsonToParameter;
+    return command === COMMAND.Json5ToParameter;
   }
   convert(jsonString: string): string {
     const json = JSON5.parse(jsonString);
@@ -17,8 +16,5 @@ export class JsonToParameterConverter implements Converter {
     }
 
     return params.toString();
-  }
-  onError(error: Error): void {
-    vscode.window.showErrorMessage(error.message, error.stack ?? "");
   }
 }

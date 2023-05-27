@@ -1,4 +1,3 @@
-import * as vscode from "vscode";
 import { COMMAND } from "../../constant";
 import { Converter } from "../converter";
 
@@ -15,8 +14,5 @@ export class ParameterToJsonConverter implements Converter {
     }
 
     return JSON.stringify(json, null, 2);
-  }
-  onError(error: Error): void {
-    vscode.window.showErrorMessage(error.message, error.stack ?? "");
   }
 }
