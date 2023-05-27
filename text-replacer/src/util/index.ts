@@ -84,3 +84,11 @@ export function wrap(fn: Function) {
     }
   };
 }
+
+export function camelToSnake(camelCase: string) {
+  return camelCase.replace(/[A-Z]/g, (match) => `_${match.toLowerCase()}`);
+}
+
+export function snakeToCamel(snakeCase: string) {
+  return snakeCase.replace(/(_\w)/g, (match) => match[1].toUpperCase());
+}
