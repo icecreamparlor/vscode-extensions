@@ -1,13 +1,14 @@
 import * as vscode from "vscode";
 import { COMMAND } from "../../constant";
-import { Convertor } from "../convertor";
+import { snakeToCamel } from "../../util";
+import { Converter } from "../converter";
 
-export class DecodeUriComponentConvertor implements Convertor {
+export class SnakeToCamelConverter implements Converter {
   isSupport(command: string): boolean {
-    return command === COMMAND.DecodeUriComponent;
+    return command === COMMAND.SnakeToCamel;
   }
   convert(text: string): string {
-    return decodeURIComponent(text);
+    return snakeToCamel(text);
   }
   onError(error: Error): void {
     vscode.window.showErrorMessage(error.message, error.stack ?? "");

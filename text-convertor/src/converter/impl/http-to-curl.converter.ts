@@ -1,8 +1,8 @@
 import * as vscode from "vscode";
 import { COMMAND } from "../../constant";
-import { Convertor } from "../convertor";
+import { Converter } from "../converter";
 
-export class HttpToCurlConvertor implements Convertor {
+export class HttpToCurlConverter implements Converter {
   isSupport(command: string): boolean {
     return command === COMMAND.HTTPToCurl;
   }

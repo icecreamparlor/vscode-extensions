@@ -1,13 +1,13 @@
 import * as vscode from "vscode";
 import { COMMAND } from "../../constant";
-import { Convertor } from "../convertor";
+import { Converter } from "../converter";
 
-export class Base64ToHexConvertor implements Convertor {
+export class EncodeUriComponentConverter implements Converter {
   isSupport(command: string): boolean {
-    return command === COMMAND.Base64ToHex;
+    return command === COMMAND.EncodeUriComponent;
   }
   convert(text: string): string {
-    return Buffer.from(text, "base64").toString("hex");
+    return encodeURIComponent(text);
   }
   onError(error: Error): void {
     vscode.window.showErrorMessage(error.message, error.stack ?? "");

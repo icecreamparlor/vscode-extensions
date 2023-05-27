@@ -1,13 +1,15 @@
 import * as vscode from "vscode";
 import { COMMAND } from "../../constant";
-import { Convertor } from "../convertor";
+import * as JSON5 from "../../js/json5";
+import { Converter } from "../converter";
 
-export class HexToBase64Convertor implements Convertor {
+export class PrettyJsonConverter implements Converter {
   isSupport(command: string): boolean {
-    return command === COMMAND.HexToBase64;
+    return command === COMMAND.PrettyJson;
   }
   convert(text: string): string {
-    return Buffer.from(text, "hex").toString("base64");
+    const obj = JSON5.parse(text);
+    return JSON.stringify(obj, null, 2);
   }
   onError(error: Error): void {
     vscode.window.showErrorMessage(error.message, error.stack ?? "");

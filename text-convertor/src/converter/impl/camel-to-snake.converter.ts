@@ -1,17 +1,15 @@
-import * as crypto from "crypto";
 import * as vscode from "vscode";
-
 import { COMMAND } from "../../constant";
-import { Convertor } from "../convertor";
+import { camelToSnake } from "../../util";
+import { Converter } from "../converter";
 
-export class Sha256Convertor implements Convertor {
+export class CamelToSnakeConverter implements Converter {
   isSupport(command: string): boolean {
-    return command === COMMAND.SHA256;
+    return command === COMMAND.CamelToSnake;
   }
   convert(text: string): string {
-    return crypto.createHash("sha256").update(text).digest("hex");
+    return camelToSnake(text);
   }
-
   onError(error: Error): void {
     vscode.window.showErrorMessage(error.message, error.stack ?? "");
   }

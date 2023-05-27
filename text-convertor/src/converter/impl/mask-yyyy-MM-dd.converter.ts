@@ -1,8 +1,8 @@
 import * as vscode from "vscode";
 import { COMMAND } from "../../constant";
-import { Convertor } from "../convertor";
+import { Converter } from "../converter";
 
-export class MaskYyyyMMDdConvertor implements Convertor {
+export class MaskYyyyMMDdConverter implements Converter {
   isSupport(command: string): boolean {
     return command === COMMAND.MaskYyyyMMDd;
   }

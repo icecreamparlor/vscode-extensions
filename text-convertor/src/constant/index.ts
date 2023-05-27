@@ -1,5 +1,28 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { QuickPickItem } from "vscode";
+import { Converter } from "../converter/converter";
+import { Base64ToHexConverter } from "../converter/impl/base64-to-hex.converter";
+import { CamelToSnakeConverter } from "../converter/impl/camel-to-snake.converter";
+import { DecodeBase64Converter } from "../converter/impl/decode-base64.converter";
+import { DecodeHexConverter } from "../converter/impl/decode-hex.converter";
+import { DecodeUriComponentConverter } from "../converter/impl/decode-uri-component.converter";
+import { EncodeBase64Converter } from "../converter/impl/encode-base64.converter";
+import { EncodeHexConverter } from "../converter/impl/encode-hex.converter";
+import { EncodeUriComponentConverter } from "../converter/impl/encode-uri-component.converter";
+import { HexToBase64Converter } from "../converter/impl/hex-to-base64.converter";
+import { HttpToCurlConverter } from "../converter/impl/http-to-curl.converter";
+import { JsonToParameterConverter } from "../converter/impl/json-to-parameter.converter";
+import { Json5ToTypescriptInterfaceConverter } from "../converter/impl/json-to-typescript-interface.converter";
+import { Json5ToJsonConverter } from "../converter/impl/json5-to-json.converter";
+import { MaskYyyyMMDdConverter } from "../converter/impl/mask-yyyy-MM-dd.converter";
+import { ParameterToJsonConverter } from "../converter/impl/parameter-to-json.converter";
+import { PrettyJsonConverter } from "../converter/impl/pretty-json.converter";
+import { PrettyXmlConverter } from "../converter/impl/pretty-xml.converter";
+import { Sha256Converter } from "../converter/impl/sha-256.converter";
+import { Sha512Converter } from "../converter/impl/sha-512.converter";
+import { SnakeToCamelConverter } from "../converter/impl/snake-to-camel.converter";
+import { ToLowerCaseConverter } from "../converter/impl/to-lowercase-converter";
+import { ToUpperCaseConverter } from "../converter/impl/to-uppercase-converter";
 
 export const COMMAND = {
   EncodeBase64: "encode-base64",
@@ -23,6 +46,7 @@ export const COMMAND = {
   SnakeToCamel: "snake-to-camel",
   CamelToSnake: "camel-to-snake",
   JSON5ToJson: "json5-to-json",
+  JSON5ToTypescriptInterface: "json5-to-typescript-interface",
 } as const;
 
 export const COMMAND_MENU: QuickPickItem[] = [
@@ -110,6 +134,42 @@ export const COMMAND_MENU: QuickPickItem[] = [
     label: COMMAND.JSON5ToJson,
     description: "JSON5 To JSON",
   },
+  {
+    label: COMMAND.JSON5ToTypescriptInterface,
+    description: "JSON5 To Typescript Interface",
+  },
 ];
 
-export const EXTENSION_NAME = "text-convertor";
+export const DEFAULT_CONVERTERS: Converter[] = [
+  /** Base64 */
+  new EncodeBase64Converter(),
+  new DecodeBase64Converter(),
+  /** Hex */
+  new EncodeHexConverter(),
+  new DecodeHexConverter(),
+  /** Hash */
+  new Sha256Converter(),
+  new Sha512Converter(),
+  /** URI Component */
+  new EncodeUriComponentConverter(),
+  new DecodeUriComponentConverter(),
+  /** HTTP */
+  new HttpToCurlConverter(),
+  /** Convention */
+  new CamelToSnakeConverter(),
+  new SnakeToCamelConverter(),
+  /** Format */
+  new PrettyJsonConverter(),
+  new PrettyXmlConverter(),
+  /** Util */
+  new Base64ToHexConverter(),
+  new HexToBase64Converter(),
+  new ToUpperCaseConverter(),
+  new ToLowerCaseConverter(),
+  new MaskYyyyMMDdConverter(),
+  new JsonToParameterConverter(),
+  new ParameterToJsonConverter(),
+  new Json5ToJsonConverter(),
+  new Json5ToTypescriptInterfaceConverter(),
+];
+export const EXTENSION_NAME = "text-converter";

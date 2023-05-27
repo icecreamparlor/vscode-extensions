@@ -1,14 +1,17 @@
+import * as crypto from "crypto";
 import * as vscode from "vscode";
-import { COMMAND } from "../../constant";
-import { Convertor } from "../convertor";
 
-export class EncodeBase64Convertor implements Convertor {
+import { COMMAND } from "../../constant";
+import { Converter } from "../converter";
+
+export class Sha512Converter implements Converter {
   isSupport(command: string): boolean {
-    return command === COMMAND.EncodeBase64;
+    return command === COMMAND.SHA512;
   }
   convert(text: string): string {
-    return Buffer.from(text).toString("base64");
+    return crypto.createHash("sha512").update(text).digest("hex");
   }
+
   onError(error: Error): void {
     vscode.window.showErrorMessage(error.message, error.stack ?? "");
   }

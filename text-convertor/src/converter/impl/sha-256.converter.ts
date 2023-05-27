@@ -1,14 +1,17 @@
+import * as crypto from "crypto";
 import * as vscode from "vscode";
-import { COMMAND } from "../../constant";
-import { Convertor } from "../convertor";
 
-export class ToLowerCaseConvertor implements Convertor {
+import { COMMAND } from "../../constant";
+import { Converter } from "../converter";
+
+export class Sha256Converter implements Converter {
   isSupport(command: string): boolean {
-    return command === COMMAND.ToLowerCase;
+    return command === COMMAND.SHA256;
   }
   convert(text: string): string {
-    return text.toLowerCase();
+    return crypto.createHash("sha256").update(text).digest("hex");
   }
+
   onError(error: Error): void {
     vscode.window.showErrorMessage(error.message, error.stack ?? "");
   }

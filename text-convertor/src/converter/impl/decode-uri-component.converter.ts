@@ -1,13 +1,13 @@
 import * as vscode from "vscode";
 import { COMMAND } from "../../constant";
-import { Convertor } from "../convertor";
+import { Converter } from "../converter";
 
-export class DecodeHexConvertor implements Convertor {
+export class DecodeUriComponentConverter implements Converter {
   isSupport(command: string): boolean {
-    return command === COMMAND.DecodeHex;
+    return command === COMMAND.DecodeUriComponent;
   }
   convert(text: string): string {
-    return Buffer.from(text, "hex").toString("utf-8");
+    return decodeURIComponent(text);
   }
   onError(error: Error): void {
     vscode.window.showErrorMessage(error.message, error.stack ?? "");

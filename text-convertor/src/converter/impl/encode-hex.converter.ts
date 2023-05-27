@@ -1,14 +1,13 @@
 import * as vscode from "vscode";
 import { COMMAND } from "../../constant";
-import { snakeToCamel } from "../../util";
-import { Convertor } from "../convertor";
+import { Converter } from "../converter";
 
-export class SnakeToCamelConvertor implements Convertor {
+export class EncodeHexConverter implements Converter {
   isSupport(command: string): boolean {
-    return command === COMMAND.SnakeToCamel;
+    return command === COMMAND.EncodeHex;
   }
   convert(text: string): string {
-    return snakeToCamel(text);
+    return Buffer.from(text).toString("hex");
   }
   onError(error: Error): void {
     vscode.window.showErrorMessage(error.message, error.stack ?? "");

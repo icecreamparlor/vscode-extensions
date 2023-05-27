@@ -1,14 +1,13 @@
 import * as vscode from "vscode";
 import { COMMAND } from "../../constant";
-import { camelToSnake } from "../../util";
-import { Convertor } from "../convertor";
+import { Converter } from "../converter";
 
-export class CamelToSnakeConvertor implements Convertor {
+export class ToUpperCaseConverter implements Converter {
   isSupport(command: string): boolean {
-    return command === COMMAND.CamelToSnake;
+    return command === COMMAND.ToUpperCase;
   }
   convert(text: string): string {
-    return camelToSnake(text);
+    return text.toUpperCase();
   }
   onError(error: Error): void {
     vscode.window.showErrorMessage(error.message, error.stack ?? "");

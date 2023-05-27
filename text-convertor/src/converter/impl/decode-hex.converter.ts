@@ -1,17 +1,14 @@
-import * as crypto from "crypto";
 import * as vscode from "vscode";
-
 import { COMMAND } from "../../constant";
-import { Convertor } from "../convertor";
+import { Converter } from "../converter";
 
-export class Sha512Convertor implements Convertor {
+export class DecodeHexConverter implements Converter {
   isSupport(command: string): boolean {
-    return command === COMMAND.SHA512;
+    return command === COMMAND.DecodeHex;
   }
   convert(text: string): string {
-    return crypto.createHash("sha512").update(text).digest("hex");
+    return Buffer.from(text, "hex").toString("utf-8");
   }
-
   onError(error: Error): void {
     vscode.window.showErrorMessage(error.message, error.stack ?? "");
   }

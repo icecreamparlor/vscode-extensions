@@ -1,13 +1,13 @@
 import * as vscode from "vscode";
 import { COMMAND } from "../../constant";
-import { Convertor } from "../convertor";
+import { Converter } from "../converter";
 
-export class ToUpperCaseConvertor implements Convertor {
+export class Base64ToHexConverter implements Converter {
   isSupport(command: string): boolean {
-    return command === COMMAND.ToUpperCase;
+    return command === COMMAND.Base64ToHex;
   }
   convert(text: string): string {
-    return text.toUpperCase();
+    return Buffer.from(text, "base64").toString("hex");
   }
   onError(error: Error): void {
     vscode.window.showErrorMessage(error.message, error.stack ?? "");

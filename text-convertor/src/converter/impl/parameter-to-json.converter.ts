@@ -1,8 +1,8 @@
 import * as vscode from "vscode";
 import { COMMAND } from "../../constant";
-import { Convertor } from "../convertor";
+import { Converter } from "../converter";
 
-export class ParameterToJsonConvertor implements Convertor {
+export class ParameterToJsonConverter implements Converter {
   isSupport(command: string): boolean {
     return command === COMMAND.ParameterToJson;
   }
