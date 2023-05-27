@@ -1,6 +1,6 @@
 {
-  "name": "bank-log-decryptor",
-  "displayName": "bank-log-decryptor",
+  "name": "text-replacer",
+  "displayName": "text-replacer",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -14,8 +14,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "bank-log-decryptor.decrypt-base64",
-        "title": "BankLogDecryptor - Decrypt Base64"
+        "command": "text-replacer.convert",
+        "title": "Convertor - Convert Text"
       }
     ]
   },
