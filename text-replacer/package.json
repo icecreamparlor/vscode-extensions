@@ -5,7 +5,7 @@
   "repository": "https://github.com/icecreamparlor/vscode-extensions",
   "displayName": "Text Convertor",
   "description": "Text Convertor for development",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publisher": "icecreamparlor",
   "icon": "images/mipong.jpeg",
   "engines": {
@@ -20,12 +20,13 @@
     "commands": [
       {
         "command": "text-convertor.convert",
-        "title": "Convertor - Convert Text"
+        "title": "Text Convertor - Convert Text"
       }
     ]
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
+    "vscode:publish": "vsce publish",
     "compile": "webpack",
     "watch": "webpack --watch",
     "package": "webpack --mode production --devtool hidden-source-map",
