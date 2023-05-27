@@ -32,6 +32,7 @@ Text Convertor Utils for development
   * JSON To form-url-encoded parameter 
   * form-url-encoded parameter To JSON 
   * Mask yyyyMMdd 
+  * JSON5 To JSON
 
 ## Shortcuts
 * Text Convert

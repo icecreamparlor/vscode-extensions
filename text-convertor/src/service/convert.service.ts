@@ -1,24 +1,25 @@
-import { Base64ToHexConvertor } from "../convertor/base64-to-hex.convertor";
-import { CamelToSnakeConvertor } from "../convertor/camel-to-snake.convertor";
 import { Convertor } from "../convertor/convertor";
-import { DecodeBase64Convertor } from "../convertor/decode-base64.convertor";
-import { DecodeHexConvertor } from "../convertor/decode-hex.convertor";
-import { DecodeUriComponentConvertor } from "../convertor/decode-uri-component.convertor";
-import { EncodeBase64Convertor } from "../convertor/encode-base64.convertor";
-import { EncodeHexConvertor } from "../convertor/encode-hex.convertor";
-import { EncodeUriComponentConvertor } from "../convertor/encode-uri-component.convertor";
-import { HexToBase64Convertor } from "../convertor/hex-to-base64.convertor";
-import { HttpToCurlConvertor } from "../convertor/http-to-curl.convertor";
-import { JsonToParameterConvertor } from "../convertor/json-to-parameter.convertor";
-import { MaskYyyyMMDdConvertor } from "../convertor/mask-yyyy-MM-dd.convertor";
-import { ParameterToJsonConvertor } from "../convertor/parameter-to-json.convertor";
-import { PrettyJsonConvertor } from "../convertor/pretty-json.convertor";
-import { PrettyXmlConvertor } from "../convertor/pretty-xml.convertor";
-import { Sha256Convertor } from "../convertor/sha-256.convertor";
-import { Sha512Convertor } from "../convertor/sha-512.convertor";
-import { SnakeToCamelConvertor } from "../convertor/snake-to-camel.convertor";
-import { ToLowerCaseConvertor } from "../convertor/to-lowercase-convertor";
-import { ToUpperCaseConvertor } from "../convertor/to-uppercase-convertor";
+import { Base64ToHexConvertor } from "../convertor/impl/base64-to-hex.convertor";
+import { CamelToSnakeConvertor } from "../convertor/impl/camel-to-snake.convertor";
+import { DecodeBase64Convertor } from "../convertor/impl/decode-base64.convertor";
+import { DecodeHexConvertor } from "../convertor/impl/decode-hex.convertor";
+import { DecodeUriComponentConvertor } from "../convertor/impl/decode-uri-component.convertor";
+import { EncodeBase64Convertor } from "../convertor/impl/encode-base64.convertor";
+import { EncodeHexConvertor } from "../convertor/impl/encode-hex.convertor";
+import { EncodeUriComponentConvertor } from "../convertor/impl/encode-uri-component.convertor";
+import { HexToBase64Convertor } from "../convertor/impl/hex-to-base64.convertor";
+import { HttpToCurlConvertor } from "../convertor/impl/http-to-curl.convertor";
+import { JsonToParameterConvertor } from "../convertor/impl/json-to-parameter.convertor";
+import { Json5ToJsonConvertor } from "../convertor/impl/json5-to-json.convertor";
+import { MaskYyyyMMDdConvertor } from "../convertor/impl/mask-yyyy-MM-dd.convertor";
+import { ParameterToJsonConvertor } from "../convertor/impl/parameter-to-json.convertor";
+import { PrettyJsonConvertor } from "../convertor/impl/pretty-json.convertor";
+import { PrettyXmlConvertor } from "../convertor/impl/pretty-xml.convertor";
+import { Sha256Convertor } from "../convertor/impl/sha-256.convertor";
+import { Sha512Convertor } from "../convertor/impl/sha-512.convertor";
+import { SnakeToCamelConvertor } from "../convertor/impl/snake-to-camel.convertor";
+import { ToLowerCaseConvertor } from "../convertor/impl/to-lowercase-convertor";
+import { ToUpperCaseConvertor } from "../convertor/impl/to-uppercase-convertor";
 import { die } from "../util";
 
 export class ConvertService {
@@ -68,4 +69,5 @@ export const convertService = new ConvertService([
   new MaskYyyyMMDdConvertor(),
   new JsonToParameterConvertor(),
   new ParameterToJsonConvertor(),
+  new Json5ToJsonConvertor(),
 ]);

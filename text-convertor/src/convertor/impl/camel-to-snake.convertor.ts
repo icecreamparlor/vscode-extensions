@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
-import { COMMAND } from "../constant";
-import { camelToSnake } from "../util";
-import { Convertor } from "./convertor";
+import { COMMAND } from "../../constant";
+import { camelToSnake } from "../../util";
+import { Convertor } from "../convertor";
 
 export class CamelToSnakeConvertor implements Convertor {
   isSupport(command: string): boolean {

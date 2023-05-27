@@ -22,6 +22,7 @@ export const COMMAND = {
   HTTPToCurl: "http-to-curl",
   SnakeToCamel: "snake-to-camel",
   CamelToSnake: "camel-to-snake",
+  JSON5ToJson: "json5-to-json",
 } as const;
 
 export const COMMAND_MENU: QuickPickItem[] = [
@@ -104,6 +105,10 @@ export const COMMAND_MENU: QuickPickItem[] = [
   {
     label: COMMAND.SnakeToCamel,
     description: "Snake To Camel",
+  },
+  {
+    label: COMMAND.JSON5ToJson,
+    description: "JSON5 To JSON",
   },
 ];
 

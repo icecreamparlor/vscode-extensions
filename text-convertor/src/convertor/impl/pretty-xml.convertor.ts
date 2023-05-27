@@ -1,8 +1,8 @@
 import * as vscode from "vscode";
 import * as xmlParser from "xml-js";
-import { COMMAND } from "../constant";
+import { COMMAND } from "../../constant";
 
-import { Convertor } from "./convertor";
+import { Convertor } from "../convertor";
 
 export class PrettyXmlConvertor implements Convertor {
   isSupport(command: string): boolean {

@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
-import { COMMAND } from "../constant";
-import { Convertor } from "./convertor";
+import { COMMAND } from "../../constant";
+import { Convertor } from "../convertor";
 
 export class EncodeUriComponentConvertor implements Convertor {
   isSupport(command: string): boolean {
