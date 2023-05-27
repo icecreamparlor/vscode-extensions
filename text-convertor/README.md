@@ -32,3 +32,7 @@ Text Convertor Utils for development
   * JSON To form-url-encoded parameter 
   * form-url-encoded parameter To JSON 
   * Mask yyyyMMdd 
+
+## Shortcuts
+* Text Convert
+  * `command+shift+c`

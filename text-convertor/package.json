@@ -5,7 +5,7 @@
   "repository": "https://github.com/icecreamparlor/vscode-extensions",
   "displayName": "Text Convertor",
   "description": "Text Convertor for development",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "publisher": "icecreamparlor",
   "icon": "images/mipong.jpeg",
   "engines": {
@@ -21,6 +21,13 @@
       {
         "command": "text-convertor.convert",
         "title": "Text Convertor - Convert Text"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "text-convertor.convert",
+        "key": "cmd+shift+c",
+        "when": "editorFocus"
       }
     ]
   },
