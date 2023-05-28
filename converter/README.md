@@ -1,12 +1,20 @@
 ## Text Converter
-***Text Converter Utils for development***
+***Text Convert Utils for Development***
 
-<img width="150" src="assets/mipong.jpeg" title="Mipong" />
+<img src="https://vscode-extensions.s3.ap-northeast-2.amazonaws.com/converter/mipong.jpeg" width="150" /> 
 
 *Say Hello To Mipong*
 
+<br />
+<hr />
+<br />
+
 ## Preview
-<img src="assets/converter-preview.png" title="Mipong" />
+<img src="https://vscode-extensions.s3.ap-northeast-2.amazonaws.com/converter/converter-preview.png" width="100%" title="Preview" />
+
+<br />
+<hr />
+<br />
 
 ## Available Features
 
@@ -58,6 +66,18 @@
   * *JSON5 To Mongoose*
 * **ETC**
   * *Mask yyyyMMdd*
+
+<br />
+<hr />
+<br />
+
+## Instructions 
+You can call `Converter` by `command+shift+c` in editor. If you want to change only selected range from editor, you can just select text and press `command+shift+c`
+
+<br />
+<hr />
+<br />
+
 ## Shortcuts
 * Text Convert
   * `command+shift+c`
