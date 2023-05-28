@@ -40,6 +40,8 @@ Text Converter Utils for development
   * *JSON5 To XML*
 * **TypeScript**
   * *JSON5 To Typescript Interface*
+* **Kotlin**
+  * *JSON5 To Kotlin Data Class*
 * **ETC**
   * *HTTP To Curl*
   * *JSON To form-url-encoded parameter*
