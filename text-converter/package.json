@@ -5,7 +5,7 @@
   "repository": "https://github.com/icecreamparlor/vscode-extensions",
   "displayName": "Text Convertor",
   "description": "Text Convertor for development",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "publisher": "icecreamparlor",
   "icon": "images/mipong.jpeg",
   "engines": {

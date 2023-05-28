@@ -17,8 +17,8 @@ Text Converter Utils for development
   * *Base64 To Hex*
   * *Hex To Base64*
 * **Crypto**
-  * Encrypt AES-CBC
-  * Decrypt AES-CBC
+  * *Encrypt AES-CBC*
+  * *Decrypt AES-CBC*
 * **Code Style**
   * *Camel Case To Snake Case*
   * *Snake Case To Camel Case*
