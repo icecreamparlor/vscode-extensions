@@ -11,14 +11,18 @@ import { EncodeBase64Converter } from "../converter/impl/encode-base64.converter
 import { EncodeHexConverter } from "../converter/impl/encode-hex.converter";
 import { EncodeUriComponentConverter } from "../converter/impl/encode-uri-component.converter";
 import { EncryptAesCvcConverter } from "../converter/impl/encrypt-aes-cvc.converter";
+import { EscapeToPlainConverter } from "../converter/impl/escape-to-plain.converter";
 import { HexToBase64Converter } from "../converter/impl/hex-to-base64.converter";
 import { HttpToCurlConverter } from "../converter/impl/http-to-curl.converter";
+import { JsonStringifiedToPlainConverter } from "../converter/impl/json-stringified-to-plain.converter";
 import { Json5ToParameterConverter } from "../converter/impl/json-to-parameter.converter";
 import { Json5ToTypescriptInterfaceConverter } from "../converter/impl/json-to-typescript-interface.converter";
 import { Json5ToJsonConverter } from "../converter/impl/json5-to-json.converter";
+import { Json5ToKotlinDataClassConverter } from "../converter/impl/json5-to-kotlin-data-class.converter";
 import { Json5ToXmlConverter } from "../converter/impl/json5-to-xml.converter";
 import { MaskYyyyMMDdConverter } from "../converter/impl/mask-yyyy-MM-dd.converter";
 import { ParameterToJsonConverter } from "../converter/impl/parameter-to-json.converter";
+import { PlainToEscapeConverter } from "../converter/impl/plain-to-escape.converter";
 import { PrettyJsonConverter } from "../converter/impl/pretty-json.converter";
 import { PrettyXmlConverter } from "../converter/impl/pretty-xml.converter";
 import { Sha256Converter } from "../converter/impl/sha-256.converter";
@@ -27,9 +31,6 @@ import { SnakeToCamelConverter } from "../converter/impl/snake-to-camel.converte
 import { ToLowerCaseConverter } from "../converter/impl/to-lowercase-converter";
 import { ToUpperCaseConverter } from "../converter/impl/to-uppercase-converter";
 import { XmlToJsonConverter } from "../converter/impl/xml-to-json.converter";
-import { EscapeToPlainConverter } from "../converter/impl/escape-to-plain.converter";
-import { PlainToEscapeConverter } from "../converter/impl/plain-to-escape.converter";
-import { JsonStringifiedToPlainConverter } from "../converter/impl/json-stringified-to-plain.converter";
 
 export const EXTENSION_NAME = "text-convertor";
 
@@ -63,6 +64,7 @@ export const COMMAND = {
   EscapeToPlain: "escape-to-plain",
   PlainToEscape: "plain-to-escape",
   JsonStringifiedToPlain: "json-stringified-to-plain",
+  Json5ToKotlinDataClass: "json5-to-kotlin-data-class",
 } as const;
 
 export const COMMAND_MENU: QuickPickItem[] = [
@@ -182,6 +184,10 @@ export const COMMAND_MENU: QuickPickItem[] = [
     label: COMMAND.JsonStringifiedToPlain,
     description: "JSON Stringified To Plain",
   },
+  {
+    label: COMMAND.Json5ToKotlinDataClass,
+    description: "JSON5 To Kotlin Data Class",
+  },
 ];
 
 export const DEFAULT_CONVERTERS: Converter[] = [
@@ -225,4 +231,5 @@ export const DEFAULT_CONVERTERS: Converter[] = [
   new Json5ToJsonConverter(),
   new Json5ToTypescriptInterfaceConverter(),
   new JsonStringifiedToPlainConverter(),
+  new Json5ToKotlinDataClassConverter(),
 ];
