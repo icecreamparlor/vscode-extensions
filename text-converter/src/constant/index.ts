@@ -32,7 +32,7 @@ import { ToLowerCaseConverter } from "../converter/impl/to-lowercase-converter";
 import { ToUpperCaseConverter } from "../converter/impl/to-uppercase-converter";
 import { XmlToJsonConverter } from "../converter/impl/xml-to-json.converter";
 
-export const EXTENSION_NAME = "text-convertor";
+export const EXTENSION_NAME = "converter";
 
 export const COMMAND = {
   EncodeBase64: "plain-to-base64",
