@@ -1,5 +1,6 @@
 import * as vscode from "vscode";
 import { convertService } from "./service/convert.service";
+import { COMMAND_HANDLERS } from "./settings";
 import { die, getRange, getSelectedRange, selectMenu, wrap } from "./util";
 
 export const convert = wrap(async () => {
@@ -10,17 +11,18 @@ export const convert = wrap(async () => {
   const document = activeEditor.document;
   // Selected Text Or All Text
   const range = _getRange(activeEditor);
-  const command = await selectMenu();
+  const selectedMenu = await selectMenu();
 
-  if(!command) {
+  if (!selectedMenu) {
     return;
   }
 
+  const commend = COMMAND_HANDLERS.find(
+    (it) => it.label === selectedMenu.label
+  ) ?? die(new Error("Command not found"));
+
   const originalText = document.getText(range);
-  const convertedText = await convertService.convert(
-    command.label,
-    originalText
-  );
+  const convertedText = await convertService.convert(commend.id, originalText);
 
   // Append the text to the document
   activeEditor.edit((editBuilder) => editBuilder.replace(range, convertedText));

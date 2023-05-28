@@ -35,6 +35,9 @@ import { ToLowerCaseConverter } from "./converter/impl/to-lowercase-converter";
 import { ToUpperCaseConverter } from "./converter/impl/to-uppercase-converter";
 import { XmlToJsonConverter } from "./converter/impl/xml-to-json.converter";
 import { YamlToJsonConverter } from "./converter/impl/yaml-to-json.converter";
+import { FilePathToPlainTextConverter } from "./converter/impl/file-path-to-plain-text.converter";
+import { FilePathToBase64Converter } from "./converter/impl/file-path-to-base64.converter";
+import { FilePathToHexConverter } from "./converter/impl/file-path-to-hex.converter";
 
 export const EXTENSION_NAME = "converter";
 
@@ -73,177 +76,198 @@ export const COMMAND = {
   Json5ToMongoose: "json5-to-mongoose",
   Json5ToYaml: "json5-to-yaml",
   YamlToJson: "yaml-to-json",
+  FilePathToPlainText: "file-path-to-plain-text",
+  FilePathToBase64: "file-path-to-base64",
+  FilePathToHex: "file-path-to-hex",
 } as const;
 
-export const COMMAND_HANDLERS: (QuickPickItem & { converter: Converter })[] = [
+export const COMMAND_HANDLERS: (QuickPickItem & {
+  id: (typeof COMMAND)[keyof typeof COMMAND];
+  converter: Converter;
+})[] = [
   {
-    label: COMMAND.EncodeBase64,
-    description: "Text to Base64",
+    id: COMMAND.EncodeBase64,
+    label: "Text to Base64",
     converter: new EncodeBase64Converter(),
   },
   {
-    label: COMMAND.DecodeBase64,
-    description: "Base64 to Text",
+    id: COMMAND.DecodeBase64,
+    label: "Base64 to Text",
     converter: new DecodeBase64Converter(),
   },
   {
-    label: COMMAND.EncodeHex,
-    description: "Text to Hex",
+    id: COMMAND.EncodeHex,
+    label: "Text to Hex",
     converter: new EncodeHexConverter(),
   },
   {
-    label: COMMAND.DecodeHex,
-    description: "Hex to Text",
+    id: COMMAND.DecodeHex,
+    label: "Hex to Text",
     converter: new DecodeHexConverter(),
   },
   {
-    label: COMMAND.SHA256,
-    description: "Text to SHA256",
+    id: COMMAND.SHA256,
+    label: "Text to SHA256",
     converter: new Sha256Converter(),
   },
   {
-    label: COMMAND.SHA512,
-    description: "Text to SHA512",
+    id: COMMAND.SHA512,
+    label: "Text to SHA512",
     converter: new Sha512Converter(),
   },
   {
-    label: COMMAND.Base64ToHex,
-    description: "Base64 to Hex",
+    id: COMMAND.Base64ToHex,
+    label: "Base64 to Hex",
     converter: new Base64ToHexConverter(),
   },
   {
-    label: COMMAND.HexToBase64,
-    description: "Hex to Base64",
+    id: COMMAND.HexToBase64,
+    label: "Hex to Base64",
     converter: new HexToBase64Converter(),
   },
   {
-    label: COMMAND.ToUpperCase,
-    description: "Text to Upper Case",
+    id: COMMAND.ToUpperCase,
+    label: "Text to Upper Case",
     converter: new ToUpperCaseConverter(),
   },
   {
-    label: COMMAND.ToLowerCase,
-    description: "Text to Lower Case",
+    id: COMMAND.ToLowerCase,
+    label: "Text to Lower Case",
     converter: new ToLowerCaseConverter(),
   },
   {
-    label: COMMAND.MaskYyyyMMDd,
-    description: "Mask yyyyMMdd",
+    id: COMMAND.MaskYyyyMMDd,
+    label: "Mask yyyyMMdd",
     converter: new MaskYyyyMMDdConverter(),
   },
   {
-    label: COMMAND.PrettyJson,
-    description: "Text to Pretty Json",
+    id: COMMAND.PrettyJson,
+    label: "Text to Pretty Json",
     converter: new PrettyJsonConverter(),
   },
   {
-    label: COMMAND.PrettyXml,
-    description: "Text to Pretty XML",
+    id: COMMAND.PrettyXml,
+    label: "Text to Pretty XML",
     converter: new PrettyXmlConverter(),
   },
   {
-    label: COMMAND.Json5ToParameter,
-    description: "Json to form-url-encoded Parameter",
+    id: COMMAND.Json5ToParameter,
+    label: "Json to form-url-encoded Parameter",
     converter: new Json5ToParameterConverter(),
   },
   {
-    label: COMMAND.ParameterToJson,
-    description: "Form-url-encoded Parameter To Json",
+    id: COMMAND.ParameterToJson,
+    label: "Form-url-encoded Parameter To Json",
     converter: new ParameterToJsonConverter(),
   },
   {
-    label: COMMAND.EncodeUriComponent,
-    description: "Text To Encode Uri Component",
+    id: COMMAND.EncodeUriComponent,
+    label: "Text To Encode Uri Component",
     converter: new EncodeUriComponentConverter(),
   },
   {
-    label: COMMAND.DecodeUriComponent,
-    description: "Encode Uri Component to Text",
+    id: COMMAND.DecodeUriComponent,
+    label: "Encode Uri Component to Text",
     converter: new DecodeUriComponentConverter(),
   },
   {
-    label: COMMAND.HTTPToCurl,
-    description: "HTTP to Curl",
+    id: COMMAND.HTTPToCurl,
+    label: "HTTP to Curl",
     converter: new HttpToCurlConverter(),
   },
   {
-    label: COMMAND.CamelToSnake,
-    description: "Camel To Snake",
+    id: COMMAND.CamelToSnake,
+    label: "Camel To Snake",
     converter: new CamelToSnakeConverter(),
   },
   {
-    label: COMMAND.SnakeToCamel,
-    description: "Snake To Camel",
+    id: COMMAND.SnakeToCamel,
+    label: "Snake To Camel",
     converter: new SnakeToCamelConverter(),
   },
   {
-    label: COMMAND.JSON5ToJson,
-    description: "JSON5 To JSON",
+    id: COMMAND.JSON5ToJson,
+    label: "JSON5 To JSON",
     converter: new Json5ToJsonConverter(),
   },
   {
-    label: COMMAND.JSON5ToTypescriptInterface,
-    description: "JSON5 To Typescript Interface",
+    id: COMMAND.JSON5ToTypescriptInterface,
+    label: "JSON5 To Typescript Interface",
     converter: new Json5ToTypescriptInterfaceConverter(),
   },
   {
-    label: COMMAND.JSON5ToXml,
-    description: "JSON5 To XML",
+    id: COMMAND.JSON5ToXml,
+    label: "JSON5 To XML",
     converter: new Json5ToXmlConverter(),
   },
   {
-    label: COMMAND.XmlToJson,
-    description: "XML To Json",
+    id: COMMAND.XmlToJson,
+    label: "XML To Json",
     converter: new XmlToJsonConverter(),
   },
   {
-    label: COMMAND.EncryptAesCbc,
-    description: "Encrypt AES-CBC",
+    id: COMMAND.EncryptAesCbc,
+    label: "Encrypt AES-CBC",
     converter: new EncryptAesCbcConverter(),
   },
   {
-    label: COMMAND.DecryptAesCbc,
-    description: "Decrypt AES-CBC",
+    id: COMMAND.DecryptAesCbc,
+    label: "Decrypt AES-CBC",
     converter: new DecryptAesCbcConverter(),
   },
   {
-    label: COMMAND.EscapeToPlain,
-    description: "Escape Character To Plain",
+    id: COMMAND.EscapeToPlain,
+    label: "Escape Character To Plain",
     converter: new EscapeToPlainConverter(),
   },
   {
-    label: COMMAND.PlainToEscape,
-    description: "Plain To Escape Character",
+    id: COMMAND.PlainToEscape,
+    label: "Plain To Escape Character",
     converter: new PlainToEscapeConverter(),
   },
   {
-    label: COMMAND.JsonStringifiedToPlain,
-    description: "JSON Stringified To Plain",
+    id: COMMAND.JsonStringifiedToPlain,
+    label: "JSON Stringified To Plain",
     converter: new JsonStringifiedToPlainConverter(),
   },
   {
-    label: COMMAND.Json5ToKotlinDataClass,
-    description: "JSON5 To Kotlin Data Class",
+    id: COMMAND.Json5ToKotlinDataClass,
+    label: "JSON5 To Kotlin Data Class",
     converter: new Json5ToKotlinDataClassConverter(),
   },
   {
-    label: COMMAND.Json5ToMysqlDdl,
-    description: "JSON5 To Mysql DDL",
+    id: COMMAND.Json5ToMysqlDdl,
+    label: "JSON5 To Mysql DDL",
     converter: new Json5ToMysqlDdlConverter(),
   },
   {
-    label: COMMAND.Json5ToMongoose,
-    description: "JSON5 To Mongoose Schema",
+    id: COMMAND.Json5ToMongoose,
+    label: "JSON5 To Mongoose Schema",
     converter: new Json5ToMongooseConverter(),
   },
   {
-    label: COMMAND.Json5ToYaml,
-    description: "JSON5 To YAML",
+    id: COMMAND.Json5ToYaml,
+    label: "JSON5 To YAML",
     converter: new Json5ToYamlConverter(),
   },
   {
-    label: COMMAND.YamlToJson,
-    description: "YAML To JSON",
+    id: COMMAND.YamlToJson,
+    label: "YAML To JSON",
     converter: new YamlToJsonConverter(),
+  },
+  {
+    id: COMMAND.FilePathToPlainText,
+    label: "File Path To Plain Text",
+    converter: new FilePathToPlainTextConverter(),
+  },
+  {
+    id: COMMAND.FilePathToBase64,
+    label: "File Path To Base64",
+    converter: new FilePathToBase64Converter(),
+  },
+  {
+    id: COMMAND.FilePathToHex,
+    label: "File Path To Hex",
+    converter: new FilePathToHexConverter(),
   },
 ];
