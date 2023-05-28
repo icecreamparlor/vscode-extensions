@@ -53,6 +53,10 @@
 * **YAML**
   * *YAML To JSON*
   * *JSON5 To YAML*
+* **File**
+  * *File Path To Plain Text*
+  * *File Path To Base64*
+  * *File Path To Hex*
 * **TypeScript**
   * *JSON5 To Typescript Interface*
 * **Kotlin**
