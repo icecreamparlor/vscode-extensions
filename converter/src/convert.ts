@@ -10,8 +10,11 @@ export const convert = wrap(async () => {
   const document = activeEditor.document;
   // Selected Text Or All Text
   const range = _getRange(activeEditor);
-  const command =
-    (await selectMenu()) ?? die(new Error("Convert Type Not Selected"));
+  const command = await selectMenu();
+
+  if(!command) {
+    return;
+  }
 
   const originalText = document.getText(range);
   const convertedText = await convertService.convert(

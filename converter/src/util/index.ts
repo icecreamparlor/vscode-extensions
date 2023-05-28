@@ -61,8 +61,8 @@ export function getSelectedText(editor: vscode.TextEditor): string {
  */
 export async function selectMenu(): Promise<vscode.QuickPickItem | undefined> {
   const result = await vscode.window.showQuickPick(COMMAND_HANDLERS, {
+    title: "Converters",
     placeHolder: "Select Converter",
-    // onDidSelectItem: item => vscode.window.showInformationMessage(`Focus ${++i}: ${item}`)
   });
 
   return result;

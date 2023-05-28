@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { QuickPickItem } from "vscode";
 import { Converter } from "./converter/converter";
-import { YamlToJsonConverter } from "./converter/impl/YamlToJsonConverter";
 import { Base64ToHexConverter } from "./converter/impl/base64-to-hex.converter";
 import { CamelToSnakeConverter } from "./converter/impl/camel-to-snake.converter";
 import { DecodeBase64Converter } from "./converter/impl/decode-base64.converter";
@@ -35,6 +34,7 @@ import { SnakeToCamelConverter } from "./converter/impl/snake-to-camel.converter
 import { ToLowerCaseConverter } from "./converter/impl/to-lowercase-converter";
 import { ToUpperCaseConverter } from "./converter/impl/to-uppercase-converter";
 import { XmlToJsonConverter } from "./converter/impl/xml-to-json.converter";
+import { YamlToJsonConverter } from "./converter/impl/yaml-to-json.converter";
 
 export const EXTENSION_NAME = "converter";
 
