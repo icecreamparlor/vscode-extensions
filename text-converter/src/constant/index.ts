@@ -27,6 +27,9 @@ import { SnakeToCamelConverter } from "../converter/impl/snake-to-camel.converte
 import { ToLowerCaseConverter } from "../converter/impl/to-lowercase-converter";
 import { ToUpperCaseConverter } from "../converter/impl/to-uppercase-converter";
 import { XmlToJsonConverter } from "../converter/impl/xml-to-json.converter";
+import { EscapeToPlainConverter } from "../converter/impl/escape-to-plain.converter";
+import { PlainToEscapeConverter } from "../converter/impl/plain-to-escape.converter";
+import { JsonStringifiedToPlainConverter } from "../converter/impl/json-stringified-to-plain.converter";
 
 export const EXTENSION_NAME = "text-convertor";
 
@@ -57,6 +60,9 @@ export const COMMAND = {
   JSON5ToXml: "json5-to-xml",
   EncryptAesCbc: "encrypt-aes-cbc",
   DecryptAesCbc: "decrypt-aes-cbc",
+  EscapeToPlain: "escape-to-plain",
+  PlainToEscape: "plain-to-escape",
+  JsonStringifiedToPlain: "json-stringified-to-plain",
 } as const;
 
 export const COMMAND_MENU: QuickPickItem[] = [
@@ -164,6 +170,18 @@ export const COMMAND_MENU: QuickPickItem[] = [
     label: COMMAND.DecryptAesCbc,
     description: "Decrypt AES-CBC",
   },
+  {
+    label: COMMAND.EscapeToPlain,
+    description: "Escape Character To Plain",
+  },
+  {
+    label: COMMAND.PlainToEscape,
+    description: "Plain To Escape Character",
+  },
+  {
+    label: COMMAND.JsonStringifiedToPlain,
+    description: "JSON Stringified To Plain",
+  },
 ];
 
 export const DEFAULT_CONVERTERS: Converter[] = [
@@ -193,6 +211,9 @@ export const DEFAULT_CONVERTERS: Converter[] = [
   /** Crypto */
   new EncryptAesCvcConverter(),
   new DecryptAesCvcConverter(),
+  /** Escape */
+  new EscapeToPlainConverter(),
+  new PlainToEscapeConverter(),
   /** Util */
   new Base64ToHexConverter(),
   new HexToBase64Converter(),
@@ -203,4 +224,5 @@ export const DEFAULT_CONVERTERS: Converter[] = [
   new ParameterToJsonConverter(),
   new Json5ToJsonConverter(),
   new Json5ToTypescriptInterfaceConverter(),
+  new JsonStringifiedToPlainConverter(),
 ];

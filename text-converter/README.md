@@ -14,6 +14,8 @@ Text Converter Utils for development
   * *Plain Text To Base64*
   * *Plain Text To Hex*
   * *Plain Text To URL Encoded*
+  * *Base64 To Hex*
+  * *Hex To Base64*
 * **Crypto**
   * Encrypt AES-CBC
   * Decrypt AES-CBC
@@ -25,22 +27,24 @@ Text Converter Utils for development
   * *XML Prettify*
   * *Plain Text To Upper Case*
   * *Plain Text To Lower Case*
+  * *JSON5 To JSON*
+  * *JSON Stringified To Plain Text*
 * **Hash**
   * *Plain Text To SHA256*
   * *Plain Text To SHA512*
+* **Escape**
+  * *Plain Text To Escaped*
+  * *Escaped To Plain Text*
 * **XML**
   * *XML To JSON*
   * *JSON5 To XML*
 * **TypeScript**
   * *JSON5 To Typescript Interface*
 * **ETC**
-  * *Base64 To Hex*
-  * *Hex To Base64*
   * *HTTP To Curl*
   * *JSON To form-url-encoded parameter*
   * *form-url-encoded parameter To JSON*
   * *Mask yyyyMMdd*
-  * *JSON5 To JSON*
 ## Shortcuts
 * Text Convert
   * `command+shift+c`
