@@ -8,7 +8,7 @@ export class ConvertService {
 
   convert(convertType: string, text: string) {
     const converter =
-      this._convertors.find((it) => it.isSupport(convertType)) ??
+      this._convertors.find((it) => it.shouldHandle(convertType)) ??
       die(new Error("Converter not found"));
 
     try {

@@ -2,7 +2,7 @@ import { COMMAND } from "../../constant";
 import { Converter } from "../converter";
 
 export class JsonStringifiedToPlainConverter implements Converter {
-  isSupport(command: string): boolean {
+  shouldHandle(command: string): boolean {
     return command === COMMAND.JsonStringifiedToPlain;
   }
   async convert(jsonString: string): Promise<string> {

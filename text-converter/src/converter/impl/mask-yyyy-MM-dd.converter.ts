@@ -2,7 +2,7 @@ import { COMMAND } from "../../constant";
 import { Converter } from "../converter";
 
 export class MaskYyyyMMDdConverter implements Converter {
-  isSupport(command: string): boolean {
+  shouldHandle(command: string): boolean {
     return command === COMMAND.MaskYyyyMMDd;
   }
   async convert(text: string): Promise<string> {

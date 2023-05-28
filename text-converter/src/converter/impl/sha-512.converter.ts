@@ -4,7 +4,7 @@ import { COMMAND } from "../../constant";
 import { Converter } from "../converter";
 
 export class Sha512Converter implements Converter {
-  isSupport(command: string): boolean {
+  shouldHandle(command: string): boolean {
     return command === COMMAND.SHA512;
   }
 

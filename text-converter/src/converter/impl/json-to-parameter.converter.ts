@@ -3,7 +3,7 @@ import * as JSON5 from "../../js/json5";
 import { Converter } from "../converter";
 
 export class Json5ToParameterConverter implements Converter {
-  isSupport(command: string): boolean {
+  shouldHandle(command: string): boolean {
     return command === COMMAND.Json5ToParameter;
   }
   async convert(jsonString: string): Promise<string> {

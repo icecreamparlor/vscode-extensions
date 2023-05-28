@@ -8,7 +8,7 @@ export class DecryptAesCvcConverter implements Converter {
   private readonly _keySizes = [16, 24, 32];
   private readonly _ivSize = [16];
 
-  isSupport(command: string) {
+  shouldHandle(command: string) {
     return command === COMMAND.DecryptAesCbc;
   }
   async convert(encrypted: string): Promise<string> {

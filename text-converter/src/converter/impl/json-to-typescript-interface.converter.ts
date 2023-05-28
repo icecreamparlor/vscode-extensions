@@ -5,7 +5,7 @@ import { COMMAND } from "../../constant";
 import { Converter } from "../converter";
 
 export class Json5ToTypescriptInterfaceConverter implements Converter {
-  isSupport(command: string): boolean {
+  shouldHandle(command: string): boolean {
     return command === COMMAND.JSON5ToTypescriptInterface;
   }
   async convert(jsonString: string): Promise<string> {

@@ -1,5 +1,5 @@
 export interface Converter {
-  isSupport(command: string): boolean;
+  shouldHandle(command: string): boolean;
   convert(text: string): Promise<string>;
   onError?(error: Error): void;
 }

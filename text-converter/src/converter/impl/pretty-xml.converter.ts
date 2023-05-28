@@ -4,7 +4,7 @@ import { COMMAND } from "../../constant";
 import { Converter } from "../converter";
 
 export class PrettyXmlConverter implements Converter {
-  isSupport(command: string): boolean {
+  shouldHandle(command: string): boolean {
     return command === COMMAND.PrettyXml;
   }
   async convert(text: string): Promise<string> {

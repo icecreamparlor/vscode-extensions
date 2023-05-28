@@ -4,7 +4,7 @@ import * as JSON5 from "../../js/json5";
 import { Converter } from "../converter";
 
 export class Json5ToXmlConverter implements Converter {
-  isSupport(command: string): boolean {
+  shouldHandle(command: string): boolean {
     return command === COMMAND.JSON5ToXml;
   }
   async convert(text: string): Promise<string> {

@@ -2,7 +2,7 @@ import { COMMAND } from "../../constant";
 import { Converter } from "../converter";
 
 export class HttpToCurlConverter implements Converter {
-  isSupport(command: string): boolean {
+  shouldHandle(command: string): boolean {
     return command === COMMAND.HTTPToCurl;
   }
   async convert(httpText: string): Promise<string> {

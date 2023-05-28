@@ -2,7 +2,7 @@ import { COMMAND } from "../../constant";
 import { Converter } from "../converter";
 
 export class DecodeBase64Converter implements Converter {
-  isSupport(command: string): boolean {
+  shouldHandle(command: string): boolean {
     return command === COMMAND.DecodeBase64;
   }
   async convert(text: string): Promise<string> {

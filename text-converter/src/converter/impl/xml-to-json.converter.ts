@@ -3,7 +3,7 @@ import { COMMAND } from "../../constant";
 import { Converter } from "../converter";
 
 export class XmlToJsonConverter implements Converter {
-  isSupport(command: string): boolean {
+  shouldHandle(command: string): boolean {
     return command === COMMAND.XmlToJson;
   }
   async convert(text: string): Promise<string> {
