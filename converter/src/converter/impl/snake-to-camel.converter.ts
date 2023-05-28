@@ -1,4 +1,4 @@
-import { COMMAND } from "../../constant";
+import { COMMAND } from "../../constant/settings";
 import { snakeToCamel } from "../../util";
 import { Converter } from "../converter";
 

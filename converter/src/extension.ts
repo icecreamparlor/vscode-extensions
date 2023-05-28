@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import { convertText } from "./command/convert-text";
-import { EXTENSION_NAME } from "./constant";
+import { EXTENSION_NAME } from "./constant/settings";
 
 export function activate(context: vscode.ExtensionContext) {
   const disposable = vscode.commands.registerCommand(

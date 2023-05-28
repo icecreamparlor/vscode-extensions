@@ -1,7 +1,7 @@
 import * as forge from "node-forge";
 import * as vscode from "vscode";
 
-import { COMMAND } from "../../constant";
+import { COMMAND } from "../../constant/settings";
 import { Converter } from "../converter";
 
 export class EncryptAesCvcConverter implements Converter {

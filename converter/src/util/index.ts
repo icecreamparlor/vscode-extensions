@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { COMMAND_MENU } from "../constant";
+import { COMMAND_MENU } from "../constant/settings";
 
 /**
  * Editor 에서 사용되고 있는 Range 를 반환합니다
@@ -76,11 +76,11 @@ export function wrap(fn: Function) {
   return async function () {
     try {
       return await fn();
-    } catch (error) {
-      vscode.window.showErrorMessage(
-        (error as Error).message,
-        (error as Error).stack ?? ""
-      );
+    } catch (error: any) {
+      vscode.window.showErrorMessage(error.message, {
+        modal: true,
+        detail: `${error.stack}`,
+      });
     }
   };
 }
@@ -96,7 +96,6 @@ export function snakeToCamel(snakeCase: string) {
 export function isNotEmptyString(value: unknown): value is string {
   return !!value && typeof value === "string" && value !== "";
 }
-
 
 export function capitalizeFirstLetter(str: string) {
   if (str.length === 0) {

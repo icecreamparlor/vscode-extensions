@@ -1,4 +1,4 @@
-import { COMMAND } from "../../constant";
+import { COMMAND } from "../../constant/settings";
 import * as JSON5 from "../../js/json5";
 import { Converter } from "../converter";
 

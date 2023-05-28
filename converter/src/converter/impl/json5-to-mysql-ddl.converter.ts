@@ -1,15 +1,16 @@
-import * as xmljs from "xml-js";
 import { COMMAND } from "../../constant/settings";
 import * as JSON5 from "../../js/json5";
+
 import { Converter } from "../converter";
 
-export class Json5ToXmlConverter implements Converter {
+export class Json5ToMysqlDdlConverter implements Converter {
   shouldHandle(command: string): boolean {
-    return command === COMMAND.JSON5ToXml;
+    return command === COMMAND.Json5ToMysqlDdl;
   }
   async convert(text: string): Promise<string> {
     const obj = JSON5.parse(text);
+    const ddl = require("generate-schema").mysql(obj);
 
-    return xmljs.js2xml(obj, { compact: true, spaces: 2 });
+    return ddl;
   }
 }

@@ -19,6 +19,7 @@ import { Json5ToParameterConverter } from "../converter/impl/json-to-parameter.c
 import { Json5ToTypescriptInterfaceConverter } from "../converter/impl/json-to-typescript-interface.converter";
 import { Json5ToJsonConverter } from "../converter/impl/json5-to-json.converter";
 import { Json5ToKotlinDataClassConverter } from "../converter/impl/json5-to-kotlin-data-class.converter";
+import { Json5ToMysqlDdlConverter } from "../converter/impl/json5-to-mysql-ddl.converter";
 import { Json5ToXmlConverter } from "../converter/impl/json5-to-xml.converter";
 import { MaskYyyyMMDdConverter } from "../converter/impl/mask-yyyy-MM-dd.converter";
 import { ParameterToJsonConverter } from "../converter/impl/parameter-to-json.converter";
@@ -65,6 +66,7 @@ export const COMMAND = {
   PlainToEscape: "plain-to-escape",
   JsonStringifiedToPlain: "json-stringified-to-plain",
   Json5ToKotlinDataClass: "json5-to-kotlin-data-class",
+  Json5ToMysqlDdl: "json5-to-mysql-ddl",
 } as const;
 
 export const COMMAND_MENU: QuickPickItem[] = [
@@ -188,6 +190,10 @@ export const COMMAND_MENU: QuickPickItem[] = [
     label: COMMAND.Json5ToKotlinDataClass,
     description: "JSON5 To Kotlin Data Class",
   },
+  {
+    label: COMMAND.Json5ToMysqlDdl,
+    description: "JSON5 To Mysql DDL",
+  },
 ];
 
 export const DEFAULT_CONVERTERS: Converter[] = [
@@ -220,6 +226,10 @@ export const DEFAULT_CONVERTERS: Converter[] = [
   /** Escape */
   new EscapeToPlainConverter(),
   new PlainToEscapeConverter(),
+  /** Database */
+  new Json5ToMysqlDdlConverter(),
+  /** TypeScript */
+  new Json5ToTypescriptInterfaceConverter(),
   /** Util */
   new Base64ToHexConverter(),
   new HexToBase64Converter(),
@@ -229,7 +239,6 @@ export const DEFAULT_CONVERTERS: Converter[] = [
   new Json5ToParameterConverter(),
   new ParameterToJsonConverter(),
   new Json5ToJsonConverter(),
-  new Json5ToTypescriptInterfaceConverter(),
   new JsonStringifiedToPlainConverter(),
   new Json5ToKotlinDataClassConverter(),
 ];

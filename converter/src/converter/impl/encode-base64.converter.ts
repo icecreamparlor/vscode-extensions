@@ -1,4 +1,4 @@
-import { COMMAND } from "../../constant";
+import { COMMAND } from "../../constant/settings";
 import { Converter } from "../converter";
 
 export class EncodeBase64Converter implements Converter {

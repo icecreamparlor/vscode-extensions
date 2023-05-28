@@ -1,6 +1,6 @@
 import * as crypto from "crypto";
 
-import { COMMAND } from "../../constant";
+import { COMMAND } from "../../constant/settings";
 import { Converter } from "../converter";
 
 export class Sha256Converter implements Converter {

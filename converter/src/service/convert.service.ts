@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { DEFAULT_CONVERTERS } from "../constant";
+import { DEFAULT_CONVERTERS } from "../constant/settings";
 import { Converter } from "../converter/converter";
 import { die } from "../util";
 
