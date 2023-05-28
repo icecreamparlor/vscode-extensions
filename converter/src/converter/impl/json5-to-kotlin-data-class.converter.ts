@@ -1,4 +1,4 @@
-import { COMMAND } from "../../constant/settings";
+import { COMMAND } from "../../settings";
 import { capitalizeFirstLetter } from "../../util";
 import { Converter } from "../converter";
 import JSON5 = require("../../js/json5");

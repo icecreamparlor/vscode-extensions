@@ -1,8 +1,8 @@
 import * as vscode from "vscode";
-import { convertService } from "../service/convert.service";
-import { die, getRange, getSelectedRange, selectMenu, wrap } from "../util";
+import { convertService } from "./service/convert.service";
+import { die, getRange, getSelectedRange, selectMenu, wrap } from "./util";
 
-export const convertText = wrap(async () => {
+export const convert = wrap(async () => {
   // Current Active Editor
   const activeEditor =
     vscode.window.activeTextEditor ?? die(new Error("No Active Editor"));
@@ -14,7 +14,10 @@ export const convertText = wrap(async () => {
     (await selectMenu()) ?? die(new Error("Convert Type Not Selected"));
 
   const originalText = document.getText(range);
-  const convertedText = await convertService.convert(command.label, originalText);
+  const convertedText = await convertService.convert(
+    command.label,
+    originalText
+  );
 
   // Append the text to the document
   activeEditor.edit((editBuilder) => editBuilder.replace(range, convertedText));

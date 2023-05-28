@@ -1,5 +1,5 @@
-import { COMMAND } from "../../constant/settings";
 import * as JSON5 from "../../js/json5";
+import { COMMAND } from "../../settings";
 import { Converter } from "../converter";
 
 export class Json5ToJsonConverter implements Converter {

@@ -1,11 +1,12 @@
+import * as YAML from "yaml";
 import { COMMAND } from "../../settings";
 import { Converter } from "../converter";
 
-export class DecodeHexConverter implements Converter {
+export class YamlToJsonConverter implements Converter {
   shouldHandle(command: string): boolean {
-    return command === COMMAND.DecodeHex;
+    return command === COMMAND.YamlToJson;
   }
   async convert(text: string): Promise<string> {
-    return Buffer.from(text, "hex").toString("utf-8");
+    return JSON.stringify(YAML.parse(text), null, 2);
   }
 }

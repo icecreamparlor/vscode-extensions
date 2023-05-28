@@ -1,10 +1,10 @@
 import * as forge from "node-forge";
 import * as vscode from "vscode";
 
-import { COMMAND } from "../../constant/settings";
+import { COMMAND } from "../../settings";
 import { Converter } from "../converter";
 
-export class EncryptAesCvcConverter implements Converter {
+export class EncryptAesCbcConverter implements Converter {
   private readonly _keySizes = [16, 24, 32];
   private readonly _ivSize = [16];
 

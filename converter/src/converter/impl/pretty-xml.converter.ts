@@ -1,5 +1,5 @@
 import * as xmlParser from "xml-js";
-import { COMMAND } from "../../constant/settings";
+import { COMMAND } from "../../settings";
 
 import { Converter } from "../converter";
 

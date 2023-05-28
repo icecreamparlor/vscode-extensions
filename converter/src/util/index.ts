@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { COMMAND_MENU } from "../constant/settings";
+import { COMMAND_HANDLERS } from "../settings";
 
 /**
  * Editor 에서 사용되고 있는 Range 를 반환합니다
@@ -60,7 +60,7 @@ export function getSelectedText(editor: vscode.TextEditor): string {
  * Shows a pick list using window.showQuickPick().
  */
 export async function selectMenu(): Promise<vscode.QuickPickItem | undefined> {
-  const result = await vscode.window.showQuickPick(COMMAND_MENU, {
+  const result = await vscode.window.showQuickPick(COMMAND_HANDLERS, {
     placeHolder: "Select Converter",
     // onDidSelectItem: item => vscode.window.showInformationMessage(`Focus ${++i}: ${item}`)
   });

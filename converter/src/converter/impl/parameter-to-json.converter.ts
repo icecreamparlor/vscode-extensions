@@ -1,4 +1,4 @@
-import { COMMAND } from "../../constant/settings";
+import { COMMAND } from "../../settings";
 import { Converter } from "../converter";
 
 export class ParameterToJsonConverter implements Converter {

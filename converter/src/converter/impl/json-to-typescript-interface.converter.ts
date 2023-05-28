@@ -1,7 +1,7 @@
 import * as JSON5 from "../../js/json5";
 
 import JSONToTypescript from "json-to-ts";
-import { COMMAND } from "../../constant/settings";
+import { COMMAND } from "../../settings";
 import { Converter } from "../converter";
 
 export class Json5ToTypescriptInterfaceConverter implements Converter {

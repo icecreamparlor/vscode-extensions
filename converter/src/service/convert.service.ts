@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
-import { DEFAULT_CONVERTERS } from "../constant/settings";
 import { Converter } from "../converter/converter";
+import { COMMAND_HANDLERS } from "../settings";
 import { die } from "../util";
 
 export class ConvertService {
@@ -35,4 +35,6 @@ export class ConvertService {
   }
 }
 
-export const convertService = new ConvertService(DEFAULT_CONVERTERS);
+export const convertService = new ConvertService(
+  COMMAND_HANDLERS.map((it) => it.converter)
+);
