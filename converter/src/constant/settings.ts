@@ -32,6 +32,7 @@ import { SnakeToCamelConverter } from "../converter/impl/snake-to-camel.converte
 import { ToLowerCaseConverter } from "../converter/impl/to-lowercase-converter";
 import { ToUpperCaseConverter } from "../converter/impl/to-uppercase-converter";
 import { XmlToJsonConverter } from "../converter/impl/xml-to-json.converter";
+import { Json5ToMongooseConverter } from "../converter/impl/json5-to-mongoose";
 
 export const EXTENSION_NAME = "converter";
 
@@ -67,6 +68,7 @@ export const COMMAND = {
   JsonStringifiedToPlain: "json-stringified-to-plain",
   Json5ToKotlinDataClass: "json5-to-kotlin-data-class",
   Json5ToMysqlDdl: "json5-to-mysql-ddl",
+  Json5ToMongoose: "json5-to-mongoose",
 } as const;
 
 export const COMMAND_MENU: QuickPickItem[] = [
@@ -194,6 +196,10 @@ export const COMMAND_MENU: QuickPickItem[] = [
     label: COMMAND.Json5ToMysqlDdl,
     description: "JSON5 To Mysql DDL",
   },
+  {
+    label: COMMAND.Json5ToMongoose,
+    description: "JSON5 To Mongoose Schema",
+  },
 ];
 
 export const DEFAULT_CONVERTERS: Converter[] = [
@@ -241,4 +247,5 @@ export const DEFAULT_CONVERTERS: Converter[] = [
   new Json5ToJsonConverter(),
   new JsonStringifiedToPlainConverter(),
   new Json5ToKotlinDataClassConverter(),
+  new Json5ToMongooseConverter(),
 ];

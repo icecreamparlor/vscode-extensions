@@ -42,10 +42,14 @@ Text Converter Utils for development
   * *JSON5 To Typescript Interface*
 * **Kotlin**
   * *JSON5 To Kotlin Data Class*
-* **ETC**
+* **Http**
   * *HTTP To Curl*
   * *JSON To form-url-encoded parameter*
   * *form-url-encoded parameter To JSON*
+* **Database**
+  * *JSON5 To Mysql DDL*
+  * *JSON5 To Mongoose*
+* **ETC**
   * *Mask yyyyMMdd*
 ## Shortcuts
 * Text Convert
