@@ -1,10 +1,10 @@
 ## Text Converter
+<img src="assets/mipong.jpeg" title="Mipong" />
 
-![mipong](https://vscode-extensions.s3.ap-northeast-2.amazonaws.com/converter/mipong.jpeg)
-Text Converter Utils for development
+***Text Converter Utils for development***
 
 ## Preview
-![preview](https://vscode-extensions.s3.ap-northeast-2.amazonaws.com/converter/converter-preview.png)
+<img src="assets/converter-preview.png" title="Mipong" />
 
 ## Available Features
 
