@@ -1,7 +1,9 @@
 ## Text Converter
-<img src="assets/mipong.jpeg" title="Mipong" />
-
 ***Text Converter Utils for development***
+
+<img width="150" src="assets/mipong.jpeg" title="Mipong" />
+
+*Say Hello To Mipong*
 
 ## Preview
 <img src="assets/converter-preview.png" title="Mipong" />
