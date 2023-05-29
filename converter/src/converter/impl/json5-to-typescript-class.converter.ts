@@ -13,10 +13,13 @@ export class Json5ToTypeScriptClassConverter implements Converter {
   }
 
   private convertToTypeScriptClass(obj: Record<string, any>): string {
+    const result: Record<string, string> = {};
     const targets: {
       className: string;
       target: Record<string, any>;
     }[] = [];
+
+    /** If Root JSON is Array, Iterate and Parse */
     if (Array.isArray(obj)) {
       obj.forEach((o, i) => {
         if (!this.isPrimitive(o)) {
@@ -32,8 +35,6 @@ export class Json5ToTypeScriptClassConverter implements Converter {
         target: obj,
       });
     }
-
-    const result: Record<string, string> = {};
 
     while (targets.length > 0) {
       const { className, target } = targets.shift()!;
@@ -144,7 +145,7 @@ export class Json5ToTypeScriptClassConverter implements Converter {
     );
   }
   private generateKey(code: string, className: string): string {
-    const removedClassName = code.split(className).join('')
+    const removedClassName = code.split(className).join("");
 
     return Buffer.from(removedClassName).toString("base64");
   }
