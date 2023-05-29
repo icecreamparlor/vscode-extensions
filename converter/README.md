@@ -62,6 +62,7 @@
   * *File Path To Hex*
 * **TypeScript**
   * *JSON5 To Typescript Interface*
+  * *JSON5 To Typescript Class*
 * **Kotlin**
   * *JSON5 To Kotlin Data Class*
 * **Http**

@@ -19,11 +19,12 @@ import { HexToBase64Converter } from "./converter/impl/hex-to-base64.converter";
 import { HttpToCurlConverter } from "./converter/impl/http-to-curl.converter";
 import { JsonStringifiedToPlainConverter } from "./converter/impl/json-stringified-to-plain.converter";
 import { Json5ToParameterConverter } from "./converter/impl/json-to-parameter.converter";
-import { Json5ToTypescriptInterfaceConverter } from "./converter/impl/json-to-typescript-interface.converter";
 import { Json5ToJsonConverter } from "./converter/impl/json5-to-json.converter";
 import { Json5ToKotlinDataClassConverter } from "./converter/impl/json5-to-kotlin-data-class.converter";
 import { Json5ToMongooseConverter } from "./converter/impl/json5-to-mongoose";
 import { Json5ToMysqlDdlConverter } from "./converter/impl/json5-to-mysql-ddl.converter";
+import { Json5ToTypeScriptClassConverter } from "./converter/impl/json5-to-typescript-class.converter";
+import { Json5ToTypescriptInterfaceConverter } from "./converter/impl/json5-to-typescript-interface.converter";
 import { Json5ToXmlConverter } from "./converter/impl/json5-to-xml.converter";
 import { Json5ToYamlConverter } from "./converter/impl/json5-to-yaml.converter";
 import { MaskYyyyMMDdConverter } from "./converter/impl/mask-yyyy-MM-dd.converter";
@@ -43,7 +44,8 @@ import { XmlToJsonConverter } from "./converter/impl/xml-to-json.converter";
 import { YamlToJsonConverter } from "./converter/impl/yaml-to-json.converter";
 
 export const EXTENSION_NAME = "converter";
-export const DEFAULT_ERROR_MESSAGE = "Failed to convert.\nPlease check the input value.";
+export const DEFAULT_ERROR_MESSAGE =
+  "Failed to convert.\nPlease check the input value.";
 
 export const COMMAND = {
   EncodeBase64: "plain-to-base64",
@@ -67,7 +69,8 @@ export const COMMAND = {
   SnakeToCamel: "snake-to-camel",
   CamelToSnake: "camel-to-snake",
   JSON5ToJson: "json5-to-json",
-  JSON5ToTypescriptInterface: "json5-to-typescript-interface",
+  JSON5ToTypeScriptInterface: "json5-to-typescript-interface",
+  JSON5ToTypeScriptClass: "json5-to-typescript-class",
   XmlToJson: "xml-to-json",
   JSON5ToXml: "json5-to-xml",
   EncryptAesCbc: "encrypt-aes-cbc",
@@ -198,9 +201,14 @@ export const COMMAND_HANDLERS: (QuickPickItem & {
     converter: new Json5ToJsonConverter(),
   },
   {
-    id: COMMAND.JSON5ToTypescriptInterface,
-    label: "JSON5 To Typescript Interface",
+    id: COMMAND.JSON5ToTypeScriptInterface,
+    label: "JSON5 To TypeScript Interface",
     converter: new Json5ToTypescriptInterfaceConverter(),
+  },
+  {
+    id: COMMAND.JSON5ToTypeScriptClass,
+    label: "JSON5 To TypeScript Class",
+    converter: new Json5ToTypeScriptClassConverter(),
   },
   {
     id: COMMAND.JSON5ToXml,
