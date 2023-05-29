@@ -41,12 +41,15 @@
   * *Plain Text To Lower Case*
   * *JSON5 To JSON*
   * *JSON Stringified To Plain Text*
+  * *Remove Line Break*
+  * *Remove Line Break And Space*
 * **Hash**
   * *Plain Text To SHA256*
   * *Plain Text To SHA512*
 * **Escape**
   * *Plain Text To Escaped*
   * *Escaped To Plain Text*
+  * *Escaped HTML To Plain HTML*
 * **XML**
   * *XML To JSON*
   * *JSON5 To XML*

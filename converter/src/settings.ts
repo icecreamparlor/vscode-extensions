@@ -12,6 +12,9 @@ import { EncodeHexConverter } from "./converter/impl/encode-hex.converter";
 import { EncodeUriComponentConverter } from "./converter/impl/encode-uri-component.converter";
 import { EncryptAesCbcConverter } from "./converter/impl/encrypt-aes-cvc.converter";
 import { EscapeToPlainConverter } from "./converter/impl/escape-to-plain.converter";
+import { FilePathToBase64Converter } from "./converter/impl/file-path-to-base64.converter";
+import { FilePathToHexConverter } from "./converter/impl/file-path-to-hex.converter";
+import { FilePathToPlainTextConverter } from "./converter/impl/file-path-to-plain-text.converter";
 import { HexToBase64Converter } from "./converter/impl/hex-to-base64.converter";
 import { HttpToCurlConverter } from "./converter/impl/http-to-curl.converter";
 import { JsonStringifiedToPlainConverter } from "./converter/impl/json-stringified-to-plain.converter";
@@ -28,16 +31,16 @@ import { ParameterToJsonConverter } from "./converter/impl/parameter-to-json.con
 import { PlainToEscapeConverter } from "./converter/impl/plain-to-escape.converter";
 import { PrettyJsonConverter } from "./converter/impl/pretty-json.converter";
 import { PrettyXmlConverter } from "./converter/impl/pretty-xml.converter";
+import { RemoveLineBreakAndSpaceConverter } from "./converter/impl/remove-line-break-and-space.converter";
+import { RemoveLineBreakConverter } from "./converter/impl/remove-line-break.converter";
 import { Sha256Converter } from "./converter/impl/sha-256.converter";
 import { Sha512Converter } from "./converter/impl/sha-512.converter";
 import { SnakeToCamelConverter } from "./converter/impl/snake-to-camel.converter";
 import { ToLowerCaseConverter } from "./converter/impl/to-lowercase-converter";
 import { ToUpperCaseConverter } from "./converter/impl/to-uppercase-converter";
+import { UnescapeHtmlConverter } from "./converter/impl/unescape-html.converter";
 import { XmlToJsonConverter } from "./converter/impl/xml-to-json.converter";
 import { YamlToJsonConverter } from "./converter/impl/yaml-to-json.converter";
-import { FilePathToPlainTextConverter } from "./converter/impl/file-path-to-plain-text.converter";
-import { FilePathToBase64Converter } from "./converter/impl/file-path-to-base64.converter";
-import { FilePathToHexConverter } from "./converter/impl/file-path-to-hex.converter";
 
 export const EXTENSION_NAME = "converter";
 
@@ -79,6 +82,9 @@ export const COMMAND = {
   FilePathToPlainText: "file-path-to-plain-text",
   FilePathToBase64: "file-path-to-base64",
   FilePathToHex: "file-path-to-hex",
+  RemoveLineBreak: "remove-line",
+  RemoveLineBreakAndSpace: "remove-space-and-line",
+  UnescapeHtml: "unescape-html",
 } as const;
 
 export const COMMAND_HANDLERS: (QuickPickItem & {
@@ -269,5 +275,20 @@ export const COMMAND_HANDLERS: (QuickPickItem & {
     id: COMMAND.FilePathToHex,
     label: "File Path To Hex",
     converter: new FilePathToHexConverter(),
+  },
+  {
+    id: COMMAND.RemoveLineBreak,
+    label: "Remove Line Break",
+    converter: new RemoveLineBreakConverter(),
+  },
+  {
+    id: COMMAND.RemoveLineBreakAndSpace,
+    label: "Remove Line Break And Space",
+    converter: new RemoveLineBreakAndSpaceConverter(),
+  },
+  {
+    id: COMMAND.UnescapeHtml,
+    label: "Unescape HTML",
+    converter: new UnescapeHtmlConverter(),
   },
 ];
