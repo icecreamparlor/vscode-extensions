@@ -43,6 +43,7 @@ import { XmlToJsonConverter } from "./converter/impl/xml-to-json.converter";
 import { YamlToJsonConverter } from "./converter/impl/yaml-to-json.converter";
 
 export const EXTENSION_NAME = "converter";
+export const DEFAULT_ERROR_MESSAGE = "Failed to convert.\nPlease check the input value.";
 
 export const COMMAND = {
   EncodeBase64: "plain-to-base64",

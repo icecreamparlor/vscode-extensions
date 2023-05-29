@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { COMMAND_HANDLERS } from "../settings";
+import { COMMAND_HANDLERS, DEFAULT_ERROR_MESSAGE } from "../settings";
 
 /**
  * Editor 에서 사용되고 있는 Range 를 반환합니다
@@ -77,9 +77,9 @@ export function wrap(fn: Function) {
     try {
       return await fn();
     } catch (error: any) {
-      vscode.window.showErrorMessage(error.message, {
+      vscode.window.showErrorMessage(DEFAULT_ERROR_MESSAGE, {
         modal: true,
-        detail: `${error.stack}`,
+        detail: `${error.message}\n\n\n\n${error.stack}`,
       });
     }
   };

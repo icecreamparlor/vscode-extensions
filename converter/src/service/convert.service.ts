@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import { Converter } from "../converter/converter";
-import { COMMAND_HANDLERS } from "../settings";
+import { COMMAND_HANDLERS, DEFAULT_ERROR_MESSAGE } from "../settings";
 import { die } from "../util";
 
 export class ConvertService {
@@ -28,9 +28,9 @@ export class ConvertService {
    * @param error - Error
    */
   private defaultOnError(error: Error) {
-    vscode.window.showErrorMessage("Text Convert Failed", {
+    vscode.window.showErrorMessage(DEFAULT_ERROR_MESSAGE, {
       modal: true,
-      detail: `${error.message}\n\n\n${error.stack}`,
+      detail: `${error.message}\n\n\n\n${error.stack}`,
     });
   }
 }
