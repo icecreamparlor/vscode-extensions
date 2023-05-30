@@ -50,10 +50,12 @@ export class Json5ToTypeScriptClassConverter implements Converter {
         const type = typeof value;
 
         if (Array.isArray(value)) {
-          const arrayType = this.getTypeFromArray(value);
+          let arrayType = this.getTypeFromArray(value);
+
           const isPrimitiveType = value.every((v) => this.isPrimitive(v));
           if (!isPrimitiveType) {
             const nestedClassName = this.capitalizeFirstLetter(key);
+            arrayType = nestedClassName;
             targets.push({
               className: nestedClassName,
               target: value.find((it) => !this.isPrimitive(it)),
@@ -103,7 +105,7 @@ export class Json5ToTypeScriptClassConverter implements Converter {
 
       typeScriptClass += `}`;
 
-      result[this.generateKey(typeScriptClass, className)] = typeScriptClass;
+      result[className] = typeScriptClass;
     }
 
     return Object.values(result).reduce((ac, code) => ac + "\n\n" + code);
@@ -143,10 +145,5 @@ export class Json5ToTypeScriptClassConverter implements Converter {
       value instanceof Number ||
       value instanceof Boolean
     );
-  }
-  private generateKey(code: string, className: string): string {
-    const removedClassName = code.split(className).join("");
-
-    return Buffer.from(removedClassName).toString("base64");
   }
 }

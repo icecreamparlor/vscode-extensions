@@ -5,7 +5,7 @@
   "repository": "https://github.com/icecreamparlor/vscode-extensions",
   "displayName": "Converter",
   "description": "Converter for development",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "publisher": "icecreamparlor",
   "icon": "assets/mipong.jpeg",
   "engines": {
