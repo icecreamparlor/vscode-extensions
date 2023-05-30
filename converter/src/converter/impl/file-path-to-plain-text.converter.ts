@@ -1,4 +1,6 @@
-import * as fs from 'fs';
+import * as fs from "fs";
+import * as os from "os";
+import * as path from "path";
 import { COMMAND } from "../../settings";
 import { Converter } from "../converter";
 
@@ -7,7 +9,22 @@ export class FilePathToPlainTextConverter implements Converter {
     return command === COMMAND.FilePathToPlainText;
   }
   async convert(text: string): Promise<string> {
-    const buffer = fs.readFileSync(text);
+    if (text.startsWith(".")) {
+      const filePath = path.resolve(__dirname, text);
+      const buffer = fs.readFileSync(filePath);
+
+      return buffer.toString("utf-8");
+    }
+
+    if (text.startsWith("~")) {
+      const homeDir = os.homedir();
+      const filePath = path.resolve(homeDir, text.replace("~", "."));
+      const buffer = fs.readFileSync(filePath);
+
+      return buffer.toString("utf-8");
+    }
+    const filePath = path.resolve(__dirname, text)
+    const buffer = fs.readFileSync(filePath);
     
     return buffer.toString('utf-8')
   }
