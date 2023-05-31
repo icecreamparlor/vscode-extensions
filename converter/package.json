@@ -5,7 +5,7 @@
   "repository": "https://github.com/icecreamparlor/vscode-extensions",
   "displayName": "Converter",
   "description": "Converter for development",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "publisher": "icecreamparlor",
   "icon": "assets/mipong.jpeg",
   "engines": {
@@ -56,6 +56,7 @@
     "eslint": "^8.39.0",
     "glob": "^8.1.0",
     "mocha": "^10.2.0",
+    "prettier": "^2.8.8",
     "ts-loader": "^9.4.2",
     "typescript": "^5.0.4",
     "webpack": "^5.81.0",
@@ -66,7 +67,7 @@
     "iconv-lite": "^0.6.3",
     "json-to-ts": "^1.7.0",
     "node-forge": "^1.3.1",
-    "prettier": "^2.8.8",
+    "pretty": "^2.0.0",
     "xml-js": "^1.6.11",
     "yaml": "^2.3.1"
   }

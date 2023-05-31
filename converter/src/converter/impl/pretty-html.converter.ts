@@ -1,4 +1,3 @@
-import * as prettier from "prettier";
 import { COMMAND } from "../../settings";
 import { Converter } from "../converter";
 
@@ -7,6 +6,6 @@ export class PrettyHtmlConverter implements Converter {
     return command === COMMAND.PrettyHtml;
   }
   async convert(text: string): Promise<string> {
-    return prettier.format(text, { parser: "html" });
+    return require("pretty")(text);
   }
 }
