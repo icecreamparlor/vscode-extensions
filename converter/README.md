@@ -79,6 +79,9 @@
 * **Markdown**
   * *Convert Markdown To HTML*
   * *Convert HTML To Markdown*
+* **Sort**
+  * *Sort Ascending*
+  * *Sort Descending*
 * **ETC**
   * *Mask yyyyMMdd*
 
