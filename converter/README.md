@@ -18,13 +18,12 @@
 
 ## Available Features
 
-* **Decode**
-  * *Base64 To Plain Text*
-  * *Hex To Plain Text*
-  * *URL Encoded To Plain Text*
-* **Encode**
-  * *Plain Text To Base64*
-  * *Plain Text To Hex*
+* **Encode/Decode**
+  * *Decode Base64*
+  * *Decode Hex*
+  * *Encode URL Encoded*
+  * *Plain Encode Base64*
+  * *Plain Encode Hex*
   * *Plain Text To URL Encoded*
   * *Base64 To Hex*
   * *Hex To Base64*
@@ -34,9 +33,13 @@
 * **Code Style**
   * *Camel Case To Snake Case*
   * *Snake Case To Camel Case*
-* **Format**
+* **Prettify / Beautify**
   * *JSON Prettify*
   * *XML Prettify*
+  * *HTML Prettify*
+  * *JavaScript Prettify*
+  * *TypeScript Prettify*
+* **Format**
   * *Plain Text To Upper Case*
   * *Plain Text To Lower Case*
   * *JSON5 To JSON*
@@ -44,8 +47,8 @@
   * *Remove Line Break*
   * *Remove Line Break And Space*
 * **Hash**
-  * *Plain Text To SHA256*
-  * *Plain Text To SHA512*
+  * *Plain Hash SHA256*
+  * *Plain Hash SHA512*
 * **Escape**
   * *Plain Text To Escaped*
   * *Escaped To Plain Text*

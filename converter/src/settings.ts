@@ -11,7 +11,7 @@ import { EncodeBase64Converter } from "./converter/impl/encode-base64.converter"
 import { EncodeHexConverter } from "./converter/impl/encode-hex.converter";
 import { EncodeUriComponentConverter } from "./converter/impl/encode-uri-component.converter";
 import { EncryptAesCbcConverter } from "./converter/impl/encrypt-aes-cvc.converter";
-import { EscapeToPlainConverter } from "./converter/impl/escape-to-plain.converter";
+import { UnEscapeTextConverter } from "./converter/impl/escape-to-plain.converter";
 import { FilePathToBase64Converter } from "./converter/impl/file-path-to-base64.converter";
 import { FilePathToHexConverter } from "./converter/impl/file-path-to-hex.converter";
 import { FilePathToPlainTextConverter } from "./converter/impl/file-path-to-plain-text.converter";
@@ -29,8 +29,11 @@ import { Json5ToXmlConverter } from "./converter/impl/json5-to-xml.converter";
 import { Json5ToYamlConverter } from "./converter/impl/json5-to-yaml.converter";
 import { MaskYyyyMMDdConverter } from "./converter/impl/mask-yyyy-MM-dd.converter";
 import { ParameterToJsonConverter } from "./converter/impl/parameter-to-json.converter";
-import { PlainToEscapeConverter } from "./converter/impl/plain-to-escape.converter";
+import { EscapeTextConverter } from "./converter/impl/plain-to-escape.converter";
+import { PrettyHtmlConverter } from "./converter/impl/pretty-html.converter";
+import { PrettyJavaScriptConverter } from "./converter/impl/pretty-javascript.converter";
 import { PrettyJsonConverter } from "./converter/impl/pretty-json.converter";
+import { PrettyTypeScriptConverter } from "./converter/impl/pretty-typescript.converter";
 import { PrettyXmlConverter } from "./converter/impl/pretty-xml.converter";
 import { RemoveLineBreakAndSpaceConverter } from "./converter/impl/remove-line-break-and-space.converter";
 import { RemoveLineBreakConverter } from "./converter/impl/remove-line-break.converter";
@@ -48,10 +51,10 @@ export const DEFAULT_ERROR_MESSAGE =
   "Failed to convert.\nPlease check the input value.";
 
 export const COMMAND = {
-  EncodeBase64: "plain-to-base64",
-  DecodeBase64: "base64-to-plain",
-  EncodeHex: "plain-to-hex",
-  DecodeHex: "hex-to-plain",
+  EncodeBase64: "encode-base64",
+  DecodeBase64: "decode-base64",
+  EncodeHex: "encode-hex",
+  DecodeHex: "decode-hex",
   HexToBase64: "hex-to-base64",
   Base64ToHex: "base64-to-hex",
   ToUpperCase: "to-upper-case",
@@ -61,6 +64,9 @@ export const COMMAND = {
   SHA512: "hash-sha-512",
   PrettyJson: "pretty-json",
   PrettyXml: "pretty-xml",
+  PrettyHtml: "pretty-html",
+  PrettyJavaScript: "pretty-javascript",
+  PrettyTypeScript: "pretty-typescript",
   Json5ToParameter: "json5-to-parameter",
   ParameterToJson: "parameter-to-json",
   EncodeUriComponent: "encode-uri-component",
@@ -75,8 +81,8 @@ export const COMMAND = {
   JSON5ToXml: "json5-to-xml",
   EncryptAesCbc: "encrypt-aes-cbc",
   DecryptAesCbc: "decrypt-aes-cbc",
-  EscapeToPlain: "escape-to-plain",
-  PlainToEscape: "plain-to-escape",
+  UnescapeText: "escape-to-plain",
+  EscapeText: "plain-to-escape",
   JsonStringifiedToPlain: "json-stringified-to-plain",
   Json5ToKotlinDataClass: "json5-to-kotlin-data-class",
   Json5ToMysqlDdl: "json5-to-mysql-ddl",
@@ -97,52 +103,52 @@ export const COMMAND_HANDLERS: (QuickPickItem & {
 })[] = [
   {
     id: COMMAND.EncodeBase64,
-    label: "Text to Base64",
+    label: "Encode Base64",
     converter: new EncodeBase64Converter(),
   },
   {
     id: COMMAND.DecodeBase64,
-    label: "Base64 to Text",
+    label: "Decode Base64",
     converter: new DecodeBase64Converter(),
   },
   {
     id: COMMAND.EncodeHex,
-    label: "Text to Hex",
+    label: "Encode Hex",
     converter: new EncodeHexConverter(),
   },
   {
     id: COMMAND.DecodeHex,
-    label: "Hex to Text",
+    label: "Decode Hex",
     converter: new DecodeHexConverter(),
   },
   {
     id: COMMAND.SHA256,
-    label: "Text to SHA256",
+    label: "Hash SHA256",
     converter: new Sha256Converter(),
   },
   {
     id: COMMAND.SHA512,
-    label: "Text to SHA512",
+    label: "Hash SHA512",
     converter: new Sha512Converter(),
   },
   {
     id: COMMAND.Base64ToHex,
-    label: "Base64 to Hex",
+    label: "Convert Base64 to Hex",
     converter: new Base64ToHexConverter(),
   },
   {
     id: COMMAND.HexToBase64,
-    label: "Hex to Base64",
+    label: "Convert Hex to Base64",
     converter: new HexToBase64Converter(),
   },
   {
     id: COMMAND.ToUpperCase,
-    label: "Text to Upper Case",
+    label: "Convert to UpperCase",
     converter: new ToUpperCaseConverter(),
   },
   {
     id: COMMAND.ToLowerCase,
-    label: "Text to Lower Case",
+    label: "Convert to LowerCase",
     converter: new ToLowerCaseConverter(),
   },
   {
@@ -152,72 +158,87 @@ export const COMMAND_HANDLERS: (QuickPickItem & {
   },
   {
     id: COMMAND.PrettyJson,
-    label: "Text to Pretty Json",
+    label: "Prettify / Beautify JSON",
     converter: new PrettyJsonConverter(),
   },
   {
     id: COMMAND.PrettyXml,
-    label: "Text to Pretty XML",
+    label: "Prettify / Beautify XML",
     converter: new PrettyXmlConverter(),
   },
   {
+    id: COMMAND.PrettyHtml,
+    label: "Prettify / Beautify HTML",
+    converter: new PrettyHtmlConverter(),
+  },
+  {
+    id: COMMAND.PrettyJavaScript,
+    label: "Prettify / Beautify JavaScript",
+    converter: new PrettyJavaScriptConverter(),
+  },
+  {
+    id: COMMAND.PrettyTypeScript,
+    label: "Prettify / Beautify TypeScript",
+    converter: new PrettyTypeScriptConverter(),
+  },
+  {
     id: COMMAND.Json5ToParameter,
-    label: "Json to form-url-encoded Parameter",
+    label: "Convert JSON to form-url-encoded",
     converter: new Json5ToParameterConverter(),
   },
   {
     id: COMMAND.ParameterToJson,
-    label: "Form-url-encoded Parameter To Json",
+    label: "Convert form-url-encoded to JSON",
     converter: new ParameterToJsonConverter(),
   },
   {
     id: COMMAND.EncodeUriComponent,
-    label: "Text To Encode Uri Component",
+    label: "Encode URI Component",
     converter: new EncodeUriComponentConverter(),
   },
   {
     id: COMMAND.DecodeUriComponent,
-    label: "Encode Uri Component to Text",
+    label: "Decode URI Component",
     converter: new DecodeUriComponentConverter(),
   },
   {
     id: COMMAND.HTTPToCurl,
-    label: "HTTP to Curl",
+    label: "Convert HTTP to Curl",
     converter: new HttpToCurlConverter(),
   },
   {
     id: COMMAND.CamelToSnake,
-    label: "Camel To Snake",
+    label: "Convert camelCase To snake_case",
     converter: new CamelToSnakeConverter(),
   },
   {
     id: COMMAND.SnakeToCamel,
-    label: "Snake To Camel",
+    label: "Convert snake_case To camelCase",
     converter: new SnakeToCamelConverter(),
   },
   {
     id: COMMAND.JSON5ToJson,
-    label: "JSON5 To JSON",
+    label: "Convert JSON5 To JSON",
     converter: new Json5ToJsonConverter(),
   },
   {
     id: COMMAND.JSON5ToTypeScriptInterface,
-    label: "JSON5 To TypeScript Interface",
+    label: "Convert JSON5 To TypeScript Interface",
     converter: new Json5ToTypescriptInterfaceConverter(),
   },
   {
     id: COMMAND.JSON5ToTypeScriptClass,
-    label: "JSON5 To TypeScript Class",
+    label: "Convert JSON5 To TypeScript Class",
     converter: new Json5ToTypeScriptClassConverter(),
   },
   {
     id: COMMAND.JSON5ToXml,
-    label: "JSON5 To XML",
+    label: "Convert JSON5 To XML",
     converter: new Json5ToXmlConverter(),
   },
   {
     id: COMMAND.XmlToJson,
-    label: "XML To Json",
+    label: "Convert XML To Json",
     converter: new XmlToJsonConverter(),
   },
   {
@@ -231,58 +252,58 @@ export const COMMAND_HANDLERS: (QuickPickItem & {
     converter: new DecryptAesCbcConverter(),
   },
   {
-    id: COMMAND.EscapeToPlain,
-    label: "Escape Character To Plain",
-    converter: new EscapeToPlainConverter(),
+    id: COMMAND.UnescapeText,
+    label: "Unescape Text",
+    converter: new UnEscapeTextConverter(),
   },
   {
-    id: COMMAND.PlainToEscape,
-    label: "Plain To Escape Character",
-    converter: new PlainToEscapeConverter(),
+    id: COMMAND.EscapeText,
+    label: "Escape Text",
+    converter: new EscapeTextConverter(),
   },
   {
     id: COMMAND.JsonStringifiedToPlain,
-    label: "JSON Stringified To Plain",
+    label: "Convert JSON Stringified To Plain",
     converter: new JsonStringifiedToPlainConverter(),
   },
   {
     id: COMMAND.Json5ToKotlinDataClass,
-    label: "JSON5 To Kotlin Data Class",
+    label: "Convert JSON5 To Kotlin Data Class",
     converter: new Json5ToKotlinDataClassConverter(),
   },
   {
     id: COMMAND.Json5ToMysqlDdl,
-    label: "JSON5 To Mysql DDL",
+    label: "Convert JSON5 To Mysql DDL",
     converter: new Json5ToMysqlDdlConverter(),
   },
   {
     id: COMMAND.Json5ToMongoose,
-    label: "JSON5 To Mongoose Schema",
+    label: "Convert JSON5 To Mongoose Schema",
     converter: new Json5ToMongooseConverter(),
   },
   {
     id: COMMAND.Json5ToYaml,
-    label: "JSON5 To YAML",
+    label: "Convert JSON5 To YAML",
     converter: new Json5ToYamlConverter(),
   },
   {
     id: COMMAND.YamlToJson,
-    label: "YAML To JSON",
+    label: "Convert YAML To JSON",
     converter: new YamlToJsonConverter(),
   },
   {
     id: COMMAND.FilePathToPlainText,
-    label: "File Path To Plain Text",
+    label: "Convert File Path To Plain Text",
     converter: new FilePathToPlainTextConverter(),
   },
   {
     id: COMMAND.FilePathToBase64,
-    label: "File Path To Base64",
+    label: "Convert File Path To Base64",
     converter: new FilePathToBase64Converter(),
   },
   {
     id: COMMAND.FilePathToHex,
-    label: "File Path To Hex",
+    label: "Convert File Path To Hex",
     converter: new FilePathToHexConverter(),
   },
   {

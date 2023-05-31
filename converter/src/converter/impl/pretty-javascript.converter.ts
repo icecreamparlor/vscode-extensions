@@ -1,11 +1,12 @@
+import * as prettier from "prettier";
 import { COMMAND } from "../../settings";
 import { Converter } from "../converter";
 
-export class UnEscapeTextConverter implements Converter {
+export class PrettyJavaScriptConverter implements Converter {
   shouldHandle(command: string): boolean {
-    return command === COMMAND.UnescapeText;
+    return command === COMMAND.PrettyJavaScript;
   }
   async convert(text: string): Promise<string> {
-    return text.replace(/\\(.)/g, "$1");
+    return prettier.format(text);
   }
 }

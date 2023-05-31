@@ -1,9 +1,9 @@
 import { COMMAND } from "../../settings";
 import { Converter } from "../converter";
 
-export class PlainToEscapeConverter implements Converter {
+export class EscapeTextConverter implements Converter {
   shouldHandle(command: string): boolean {
-    return command === COMMAND.PlainToEscape;
+    return command === COMMAND.EscapeText;
   }
   async convert(text: string): Promise<string> {
     const escapeChars = {
