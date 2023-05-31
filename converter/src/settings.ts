@@ -18,6 +18,7 @@ import { FilePathToBase64Converter } from "./converter/impl/file-path-to-base64.
 import { FilePathToHexConverter } from "./converter/impl/file-path-to-hex.converter";
 import { FilePathToPlainTextConverter } from "./converter/impl/file-path-to-plain-text.converter";
 import { HexToBase64Converter } from "./converter/impl/hex-to-base64.converter";
+import { HtmlToMarkdownConverter } from "./converter/impl/html-to-markdown.converter";
 import { HttpToCurlConverter } from "./converter/impl/http-to-curl.converter";
 import { JsonStringifiedToPlainConverter } from "./converter/impl/json-stringified-to-plain.converter";
 import { Json5ToParameterConverter } from "./converter/impl/json-to-parameter.converter";
@@ -29,6 +30,7 @@ import { Json5ToTypeScriptClassConverter } from "./converter/impl/json5-to-types
 import { Json5ToTypescriptInterfaceConverter } from "./converter/impl/json5-to-typescript-interface.converter";
 import { Json5ToXmlConverter } from "./converter/impl/json5-to-xml.converter";
 import { Json5ToYamlConverter } from "./converter/impl/json5-to-yaml.converter";
+import { MarkdownToHtmlConverter } from "./converter/impl/markdown-to-html.converter";
 import { MaskYyyyMMDdConverter } from "./converter/impl/mask-yyyy-MM-dd.converter";
 import { ParameterToJsonConverter } from "./converter/impl/parameter-to-json.converter";
 import { PrettyHtmlConverter } from "./converter/impl/pretty-html.converter";
@@ -97,6 +99,8 @@ export const COMMAND = {
   RemoveLineBreakAndSpace: "remove-space-and-line",
   UnescapeHtml: "unescape-html",
   EvalJavascript: "eval-javascript",
+  MarkdownToHtml: "markdown-to-html",
+  HtmlToMarkdown: "html-to-markdown",
 } as const;
 
 export const COMMAND_HANDLERS: (QuickPickItem & {
@@ -335,5 +339,15 @@ export const COMMAND_HANDLERS: (QuickPickItem & {
     id: COMMAND.EvalJavascript,
     label: "Eval Javascript",
     converter: new EvalJavascriptConverter(),
+  },
+  {
+    id: COMMAND.MarkdownToHtml,
+    label: "Convert Markdown To HTML",
+    converter: new MarkdownToHtmlConverter(),
+  },
+  {
+    id: COMMAND.HtmlToMarkdown,
+    label: "Convert HTML To Markdown",
+    converter: new HtmlToMarkdownConverter(),
   },
 ];
