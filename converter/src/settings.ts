@@ -5,13 +5,15 @@ import { Base64ToHexConverter } from "./converter/impl/base64-to-hex.converter";
 import { CamelToSnakeConverter } from "./converter/impl/camel-to-snake.converter";
 import { DecodeBase64Converter } from "./converter/impl/decode-base64.converter";
 import { DecodeHexConverter } from "./converter/impl/decode-hex.converter";
+import { DecodeUriComponentWithEucKrConverter } from "./converter/impl/decode-uri-component-with-euc-kr.converter";
 import { DecodeUriComponentConverter } from "./converter/impl/decode-uri-component.converter";
 import { DecryptAesCbcConverter } from "./converter/impl/decrypt-aes-cvc.converter";
 import { EncodeBase64Converter } from "./converter/impl/encode-base64.converter";
 import { EncodeHexConverter } from "./converter/impl/encode-hex.converter";
 import { EncodeUriComponentConverter } from "./converter/impl/encode-uri-component.converter";
 import { EncryptAesCbcConverter } from "./converter/impl/encrypt-aes-cvc.converter";
-import { UnEscapeTextConverter } from "./converter/impl/escape-to-plain.converter";
+import { EscapeTextConverter } from "./converter/impl/escape-text.converter";
+import { EvalJavascriptConverter } from "./converter/impl/eval-javascript.converter";
 import { FilePathToBase64Converter } from "./converter/impl/file-path-to-base64.converter";
 import { FilePathToHexConverter } from "./converter/impl/file-path-to-hex.converter";
 import { FilePathToPlainTextConverter } from "./converter/impl/file-path-to-plain-text.converter";
@@ -29,7 +31,6 @@ import { Json5ToXmlConverter } from "./converter/impl/json5-to-xml.converter";
 import { Json5ToYamlConverter } from "./converter/impl/json5-to-yaml.converter";
 import { MaskYyyyMMDdConverter } from "./converter/impl/mask-yyyy-MM-dd.converter";
 import { ParameterToJsonConverter } from "./converter/impl/parameter-to-json.converter";
-import { EscapeTextConverter } from "./converter/impl/plain-to-escape.converter";
 import { PrettyHtmlConverter } from "./converter/impl/pretty-html.converter";
 import { PrettyJavaScriptConverter } from "./converter/impl/pretty-javascript.converter";
 import { PrettyJsonConverter } from "./converter/impl/pretty-json.converter";
@@ -43,6 +44,7 @@ import { SnakeToCamelConverter } from "./converter/impl/snake-to-camel.converter
 import { ToLowerCaseConverter } from "./converter/impl/to-lowercase-converter";
 import { ToUpperCaseConverter } from "./converter/impl/to-uppercase-converter";
 import { UnescapeHtmlConverter } from "./converter/impl/unescape-html.converter";
+import { UnescapeTextConverter } from "./converter/impl/unescape-text.converter";
 import { XmlToJsonConverter } from "./converter/impl/xml-to-json.converter";
 import { YamlToJsonConverter } from "./converter/impl/yaml-to-json.converter";
 
@@ -71,6 +73,7 @@ export const COMMAND = {
   ParameterToJson: "parameter-to-json",
   EncodeUriComponent: "encode-uri-component",
   DecodeUriComponent: "decode-uri-component",
+  DecodeUriComponentWithEucKr: "decode-uri-component-with-euc-kr",
   HTTPToCurl: "http-to-curl",
   SnakeToCamel: "snake-to-camel",
   CamelToSnake: "camel-to-snake",
@@ -95,6 +98,7 @@ export const COMMAND = {
   RemoveLineBreak: "remove-line",
   RemoveLineBreakAndSpace: "remove-space-and-line",
   UnescapeHtml: "unescape-html",
+  EvalJavascript: "eval-javascript",
 } as const;
 
 export const COMMAND_HANDLERS: (QuickPickItem & {
@@ -202,6 +206,11 @@ export const COMMAND_HANDLERS: (QuickPickItem & {
     converter: new DecodeUriComponentConverter(),
   },
   {
+    id: COMMAND.DecodeUriComponentWithEucKr,
+    label: "Decode URI Component With EUC-KR Encoding",
+    converter: new DecodeUriComponentWithEucKrConverter(),
+  },
+  {
     id: COMMAND.HTTPToCurl,
     label: "Convert HTTP to Curl",
     converter: new HttpToCurlConverter(),
@@ -254,7 +263,7 @@ export const COMMAND_HANDLERS: (QuickPickItem & {
   {
     id: COMMAND.UnescapeText,
     label: "Unescape Text",
-    converter: new UnEscapeTextConverter(),
+    converter: new UnescapeTextConverter(),
   },
   {
     id: COMMAND.EscapeText,
@@ -320,5 +329,10 @@ export const COMMAND_HANDLERS: (QuickPickItem & {
     id: COMMAND.UnescapeHtml,
     label: "Unescape HTML",
     converter: new UnescapeHtmlConverter(),
+  },
+  {
+    id: COMMAND.EvalJavascript,
+    label: "Eval Javascript",
+    converter: new EvalJavascriptConverter(),
   },
 ];

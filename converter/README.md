@@ -21,60 +21,63 @@
 * **Encode/Decode**
   * *Decode Base64*
   * *Decode Hex*
-  * *Encode URL Encoded*
-  * *Plain Encode Base64*
-  * *Plain Encode Hex*
-  * *Plain Text To URL Encoded*
-  * *Base64 To Hex*
-  * *Hex To Base64*
+  * *Encode URI Component*
+  * *Decode Base64*
+  * *Decode Hex*
+  * *Decode URI Component*
+  * *Decode URI Component With EUC-KR Charset*
+  * *Convert Base64 To Hex*
+  * *Convert Hex To Base64*
 * **Crypto**
   * *Encrypt AES-CBC*
   * *Decrypt AES-CBC*
 * **Code Style**
-  * *Camel Case To Snake Case*
-  * *Snake Case To Camel Case*
+  * *Convert Camel Case To Snake Case*
+  * *Convert Snake Case To Camel Case*
 * **Prettify / Beautify**
-  * *JSON Prettify*
-  * *XML Prettify*
-  * *HTML Prettify*
-  * *JavaScript Prettify*
-  * *TypeScript Prettify*
+  * *Prettify JSON*
+  * *Prettify XML*
+  * *Prettify HTML*
+  * *Prettify JavaScript*
+  * *Prettify TypeScript*
 * **Format**
-  * *Plain Text To Upper Case*
-  * *Plain Text To Lower Case*
-  * *JSON5 To JSON*
-  * *JSON Stringified To Plain Text*
+  * *Convert Text To Upper Case*
+  * *Convert Text To Lower Case*
+  * *Convert JSON5 To JSON*
+  * *Convert JSON Stringified To Plain Text*
   * *Remove Line Break*
   * *Remove Line Break And Space*
 * **Hash**
-  * *Plain Hash SHA256*
-  * *Plain Hash SHA512*
+  * *Hash SHA256*
+  * *Hash SHA512*
 * **Escape**
-  * *Plain Text To Escaped*
-  * *Escaped To Plain Text*
-  * *Escaped HTML To Plain HTML*
+  * *Escape Text*
+  * *Escape Text*
+  * *Escape HTML*
 * **XML**
-  * *XML To JSON*
-  * *JSON5 To XML*
+  * *Convert XML To JSON*
+  * *Convert JSON5 To XML*
 * **YAML**
-  * *YAML To JSON*
-  * *JSON5 To YAML*
+  * *Convert YAML To JSON*
+  * *Convert JSON5 To YAML*
 * **File**
-  * *File Path To Plain Text*
-  * *File Path To Base64*
-  * *File Path To Hex*
+  * *Convert File Path To Plain Text*
+  * *Convert File Path To Base64*
+  * *Convert File Path To Hex*
+* **JavaScript**
+  * *Eval Javascript*
 * **TypeScript**
-  * *JSON5 To Typescript Interface*
-  * *JSON5 To Typescript Class*
+  * *Convert JSON5 To Typescript Interface*
+  * *Convert JSON5 To Typescript Class*
 * **Kotlin**
-  * *JSON5 To Kotlin Data Class*
+  * *Convert JSON5 To Kotlin Data Class*
 * **Http**
-  * *HTTP To Curl*
-  * *JSON To form-url-encoded parameter*
-  * *form-url-encoded parameter To JSON*
+  * *Convert HTTP To Curl*
+  * *Convert JSON To form-url-encoded parameter*
+  * *Convert form-url-encoded parameter To JSON*
 * **Database**
-  * *JSON5 To Mysql DDL*
-  * *JSON5 To Mongoose*
+  * *Convert JSON5 To Mysql DDL*
+  * *Convert JSON5 To Mongoose*
 * **ETC**
   * *Mask yyyyMMdd*
 

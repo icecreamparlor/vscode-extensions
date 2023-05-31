@@ -1,7 +1,7 @@
 import { COMMAND } from "../../settings";
 import { Converter } from "../converter";
 
-export class UnEscapeTextConverter implements Converter {
+export class UnescapeTextConverter implements Converter {
   shouldHandle(command: string): boolean {
     return command === COMMAND.UnescapeText;
   }
