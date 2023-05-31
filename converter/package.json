@@ -5,14 +5,16 @@
   "repository": "https://github.com/icecreamparlor/vscode-extensions",
   "displayName": "Converter",
   "description": "Converter for development",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "publisher": "icecreamparlor",
   "icon": "assets/mipong.jpeg",
   "engines": {
     "vscode": "^1.78.0"
   },
   "categories": [
-    "Other"
+    "Formatters",
+    "Keymaps",
+    "Snippets"
   ],
   "activationEvents": [],
   "main": "./dist/extension.js",
