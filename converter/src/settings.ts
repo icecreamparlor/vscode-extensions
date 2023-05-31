@@ -31,10 +31,7 @@ import { Json5ToXmlConverter } from "./converter/impl/json5-to-xml.converter";
 import { Json5ToYamlConverter } from "./converter/impl/json5-to-yaml.converter";
 import { MaskYyyyMMDdConverter } from "./converter/impl/mask-yyyy-MM-dd.converter";
 import { ParameterToJsonConverter } from "./converter/impl/parameter-to-json.converter";
-import { PrettyHtmlConverter } from "./converter/impl/pretty-html.converter";
-import { PrettyJavaScriptConverter } from "./converter/impl/pretty-javascript.converter";
 import { PrettyJsonConverter } from "./converter/impl/pretty-json.converter";
-import { PrettyTypeScriptConverter } from "./converter/impl/pretty-typescript.converter";
 import { PrettyXmlConverter } from "./converter/impl/pretty-xml.converter";
 import { RemoveLineBreakAndSpaceConverter } from "./converter/impl/remove-line-break-and-space.converter";
 import { RemoveLineBreakConverter } from "./converter/impl/remove-line-break.converter";
@@ -170,6 +167,8 @@ export const COMMAND_HANDLERS: (QuickPickItem & {
     label: "Prettify / Beautify XML",
     converter: new PrettyXmlConverter(),
   },
+  /*
+  Prettier 를 사용하는 Converter 를 추가하면, 패키지 사이즈가 너무 커지고 빌드가 오래걸림
   {
     id: COMMAND.PrettyHtml,
     label: "Prettify / Beautify HTML",
@@ -185,6 +184,7 @@ export const COMMAND_HANDLERS: (QuickPickItem & {
     label: "Prettify / Beautify TypeScript",
     converter: new PrettyTypeScriptConverter(),
   },
+  */
   {
     id: COMMAND.Json5ToParameter,
     label: "Convert JSON to form-url-encoded",

@@ -37,9 +37,6 @@
 * **Prettify / Beautify**
   * *Prettify JSON*
   * *Prettify XML*
-  * *Prettify HTML*
-  * *Prettify JavaScript*
-  * *Prettify TypeScript*
 * **Format**
   * *Convert Text To Upper Case*
   * *Convert Text To Lower Case*
