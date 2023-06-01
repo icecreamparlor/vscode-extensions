@@ -43,6 +43,8 @@ import { RemoveLineBreakConverter } from "./converter/impl/remove-line-break.con
 import { Sha256Converter } from "./converter/impl/sha-256.converter";
 import { Sha512Converter } from "./converter/impl/sha-512.converter";
 import { SnakeToCamelConverter } from "./converter/impl/snake-to-camel.converter";
+import { SortLineAscendingConverter } from "./converter/impl/sort-line-ascending.converter";
+import { SortLineDescendingConverter } from "./converter/impl/sort-line-descending.converter";
 import { SortNumberAscendingConverter } from "./converter/impl/sort-number-ascending.converter";
 import { SortNumberDescendingConverter } from "./converter/impl/sort-number-descending.converter";
 import { SortWordAscendingConverter } from "./converter/impl/sort-word-ascending.converter";
@@ -111,6 +113,8 @@ export const COMMAND = {
   HtmlToMarkdown: "html-to-markdown",
   SortWordAscending: "sort-word-ascending",
   SortWordDescending: "sort-word-descending",
+  SortLineAscending: "sort-line-ascending",
+  SortLineDescending: "sort-line-descending",
   SortNumberAscending: "sort-number-ascending",
   SortNumberDescending: "sort-number-descending",
 } as const;
@@ -381,6 +385,16 @@ export const COMMAND_HANDLERS: (QuickPickItem & {
     id: COMMAND.SortWordDescending,
     label: "Sort Word Descending",
     converter: new SortWordDescendingConverter(),
+  },
+  {
+    id: COMMAND.SortLineAscending,
+    label: "Sort Line Ascending",
+    converter: new SortLineAscendingConverter(),
+  },
+  {
+    id: COMMAND.SortLineDescending,
+    label: "Sort Line Descending",
+    converter: new SortLineDescendingConverter(),
   },
   {
     id: COMMAND.SortNumberAscending,

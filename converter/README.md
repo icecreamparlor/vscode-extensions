@@ -84,6 +84,8 @@
 * **Sort**
   * *Sort Word Ascending*
   * *Sort Word Descending*
+  * *Sort Line Ascending*
+  * *Sort Line Descending*
   * *Sort Number Ascending*
   * *Sort Number Descending*
 * **ETC**
