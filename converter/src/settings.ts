@@ -8,10 +8,12 @@ import { DecodeHexConverter } from "./converter/impl/decode-hex.converter";
 import { DecodeUriComponentWithEucKrConverter } from "./converter/impl/decode-uri-component-with-euc-kr.converter";
 import { DecodeUriComponentConverter } from "./converter/impl/decode-uri-component.converter";
 import { DecryptAesCbcConverter } from "./converter/impl/decrypt-aes-cvc.converter";
+import { DecryptOpensslAesConverter } from "./converter/impl/decrypt-openssl-aes.converter";
 import { EncodeBase64Converter } from "./converter/impl/encode-base64.converter";
 import { EncodeHexConverter } from "./converter/impl/encode-hex.converter";
 import { EncodeUriComponentConverter } from "./converter/impl/encode-uri-component.converter";
 import { EncryptAesCbcConverter } from "./converter/impl/encrypt-aes-cvc.converter";
+import { EncryptOpensslAesConverter } from "./converter/impl/encrypt-openssl-aes.converter";
 import { EscapeTextConverter } from "./converter/impl/escape-text.converter";
 import { EvalJavascriptConverter } from "./converter/impl/eval-javascript.converter";
 import { FilePathToBase64Converter } from "./converter/impl/file-path-to-base64.converter";
@@ -88,6 +90,8 @@ export const COMMAND = {
   JSON5ToXml: "json5-to-xml",
   EncryptAesCbc: "encrypt-aes-cbc",
   DecryptAesCbc: "decrypt-aes-cbc",
+  EncryptOpensslAes: "encrypt-openssl-aes",
+  DecryptOpensslAes: "decrypt-openssl-aes",
   UnescapeText: "escape-to-plain",
   EscapeText: "plain-to-escape",
   JsonStringifiedToPlain: "json-stringified-to-plain",
@@ -272,6 +276,16 @@ export const COMMAND_HANDLERS: (QuickPickItem & {
     id: COMMAND.DecryptAesCbc,
     label: "Decrypt AES-CBC",
     converter: new DecryptAesCbcConverter(),
+  },
+  {
+    id: COMMAND.EncryptOpensslAes,
+    label: "Encrypt OpenSSL AES",
+    converter: new EncryptOpensslAesConverter(),
+  },
+  {
+    id: COMMAND.DecryptOpensslAes,
+    label: "Decrypt OpenSSL AES",
+    converter: new DecryptOpensslAesConverter(),
   },
   {
     id: COMMAND.UnescapeText,

@@ -31,6 +31,8 @@
 * **Crypto**
   * *Encrypt AES-CBC*
   * *Decrypt AES-CBC*
+  * *Encrypt OpenSSL AES*
+  * *Decrypt OpenSSL AES*
 * **Code Style**
   * *Convert Camel Case To Snake Case*
   * *Convert Snake Case To Camel Case*
