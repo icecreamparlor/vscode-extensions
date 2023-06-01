@@ -21,13 +21,9 @@ export class Json5ToTypeScriptClassConverter implements Converter {
 
     /** If Root JSON is Array, Iterate and Parse */
     if (Array.isArray(obj)) {
-      obj.forEach((o, i) => {
-        if (!this.isPrimitive(o)) {
-          targets.push({
-            className: `Root${i}`,
-            target: o,
-          });
-        }
+      targets.push({
+        className: "Root",
+        target: obj[0],
       });
     } else {
       targets.push({
