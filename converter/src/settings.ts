@@ -41,8 +41,10 @@ import { RemoveLineBreakConverter } from "./converter/impl/remove-line-break.con
 import { Sha256Converter } from "./converter/impl/sha-256.converter";
 import { Sha512Converter } from "./converter/impl/sha-512.converter";
 import { SnakeToCamelConverter } from "./converter/impl/snake-to-camel.converter";
-import { SortAscendingConverter } from "./converter/impl/sort-ascending.converter";
-import { SortDescendingConverter } from "./converter/impl/sort-descending.converter";
+import { SortNumberAscendingConverter } from "./converter/impl/sort-number-ascending.converter";
+import { SortNumberDescendingConverter } from "./converter/impl/sort-number-descending.converter";
+import { SortWordAscendingConverter } from "./converter/impl/sort-word-ascending.converter";
+import { SortWordDescendingConverter } from "./converter/impl/sort-word-descending.converter";
 import { ToLowerCaseConverter } from "./converter/impl/to-lowercase-converter";
 import { ToUpperCaseConverter } from "./converter/impl/to-uppercase-converter";
 import { UnescapeHtmlConverter } from "./converter/impl/unescape-html.converter";
@@ -103,8 +105,10 @@ export const COMMAND = {
   EvalJavascript: "eval-javascript",
   MarkdownToHtml: "markdown-to-html",
   HtmlToMarkdown: "html-to-markdown",
-  SortAscending: "sort-ascending",
-  SortDescending: "sort-descending",
+  SortWordAscending: "sort-word-ascending",
+  SortWordDescending: "sort-word-descending",
+  SortNumberAscending: "sort-number-ascending",
+  SortNumberDescending: "sort-number-descending",
 } as const;
 
 export const COMMAND_HANDLERS: (QuickPickItem & {
@@ -355,13 +359,23 @@ export const COMMAND_HANDLERS: (QuickPickItem & {
     converter: new HtmlToMarkdownConverter(),
   },
   {
-    id: COMMAND.SortAscending,
-    label: "Sort Ascending",
-    converter: new SortAscendingConverter(),
+    id: COMMAND.SortWordAscending,
+    label: "Sort Word Ascending",
+    converter: new SortWordAscendingConverter(),
   },
   {
-    id: COMMAND.SortDescending,
-    label: "Sort Descending",
-    converter: new SortDescendingConverter(),
+    id: COMMAND.SortWordDescending,
+    label: "Sort Word Descending",
+    converter: new SortWordDescendingConverter(),
+  },
+  {
+    id: COMMAND.SortNumberAscending,
+    label: "Sort Number Ascending",
+    converter: new SortNumberAscendingConverter(),
+  },
+  {
+    id: COMMAND.SortNumberDescending,
+    label: "Sort Number Descending",
+    converter: new SortNumberDescendingConverter(),
   },
 ];

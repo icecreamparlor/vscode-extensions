@@ -80,8 +80,10 @@
   * *Convert Markdown To HTML*
   * *Convert HTML To Markdown*
 * **Sort**
-  * *Sort Ascending*
-  * *Sort Descending*
+  * *Sort Word Ascending*
+  * *Sort Word Descending*
+  * *Sort Number Ascending*
+  * *Sort Number Descending*
 * **ETC**
   * *Mask yyyyMMdd*
 
