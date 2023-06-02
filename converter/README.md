@@ -72,7 +72,7 @@
   * *Convert JSON5 To Typescript Class*
 * **Kotlin**
   * *Convert JSON5 To Kotlin Data Class*
-* **Http**
+* **HTTP**
   * *Convert HTTP To Curl*
   * *Convert JSON To form-url-encoded parameter*
   * *Convert form-url-encoded parameter To JSON*
