@@ -54,6 +54,7 @@
   * *Escape Text*
   * *Escape Text*
   * *Escape HTML*
+  * *Convert Escape Sequence To Plain Text*
 * **XML**
   * *Convert XML To JSON*
   * *Convert JSON5 To XML*

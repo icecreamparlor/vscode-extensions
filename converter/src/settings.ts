@@ -14,6 +14,7 @@ import { EncodeHexConverter } from "./converter/impl/encode-hex.converter";
 import { EncodeUriComponentConverter } from "./converter/impl/encode-uri-component.converter";
 import { EncryptAesCbcConverter } from "./converter/impl/encrypt-aes-cvc.converter";
 import { EncryptOpensslAesConverter } from "./converter/impl/encrypt-openssl-aes.converter";
+import { EscapeSequenceToPlainTextConverter } from "./converter/impl/escape-sequence-to-plain-text.converter";
 import { EscapeTextConverter } from "./converter/impl/escape-text.converter";
 import { EvalJavascriptConverter } from "./converter/impl/eval-javascript.converter";
 import { FilePathToBase64Converter } from "./converter/impl/file-path-to-base64.converter";
@@ -117,6 +118,7 @@ export const COMMAND = {
   SortLineDescending: "sort-line-descending",
   SortNumberAscending: "sort-number-ascending",
   SortNumberDescending: "sort-number-descending",
+  EscapeSequenceToPlainText: "escape-sequence-to-plain-text",
 } as const;
 
 export const COMMAND_HANDLERS: (QuickPickItem & {
@@ -405,5 +407,10 @@ export const COMMAND_HANDLERS: (QuickPickItem & {
     id: COMMAND.SortNumberDescending,
     label: "Sort Number Descending",
     converter: new SortNumberDescendingConverter(),
+  },
+  {
+    id: COMMAND.EscapeSequenceToPlainText,
+    label: "Convert Escape Sequence To Plain Text",
+    converter: new EscapeSequenceToPlainTextConverter(),
   },
 ];
