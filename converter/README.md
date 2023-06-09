@@ -47,6 +47,8 @@
   * *Convert JSON Stringified To Plain Text*
   * *Remove Line Break*
   * *Remove Line Break And Space*
+  * *Remove Quotation Marks*
+  * *Replace Word*
 * **Hash**
   * *Hash SHA256*
   * *Hash SHA512*

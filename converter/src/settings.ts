@@ -41,6 +41,8 @@ import { PrettyJsonConverter } from "./converter/impl/pretty-json.converter";
 import { PrettyXmlConverter } from "./converter/impl/pretty-xml.converter";
 import { RemoveLineBreakAndSpaceConverter } from "./converter/impl/remove-line-break-and-space.converter";
 import { RemoveLineBreakConverter } from "./converter/impl/remove-line-break.converter";
+import { RemoveQuotationMarkConverter } from "./converter/impl/remove-quotation-mark.converter";
+import { ReplaceWordConverter } from "./converter/impl/replace-word.converter";
 import { Sha256Converter } from "./converter/impl/sha-256.converter";
 import { Sha512Converter } from "./converter/impl/sha-512.converter";
 import { SnakeToCamelConverter } from "./converter/impl/snake-to-camel.converter";
@@ -108,6 +110,8 @@ export const COMMAND = {
   FilePathToHex: "file-path-to-hex",
   RemoveLineBreak: "remove-line",
   RemoveLineBreakAndSpace: "remove-space-and-line",
+  RemoveQuotationMark: "remove-quotation-mark",
+  ReplaceWord: "replace-word",
   UnescapeHtml: "unescape-html",
   EvalJavascript: "eval-javascript",
   MarkdownToHtml: "markdown-to-html",
@@ -357,6 +361,16 @@ export const COMMAND_HANDLERS: (QuickPickItem & {
     id: COMMAND.RemoveLineBreakAndSpace,
     label: "Remove Line Break And Space",
     converter: new RemoveLineBreakAndSpaceConverter(),
+  },
+  {
+    id: COMMAND.RemoveQuotationMark,
+    label: "Remove Quotation Marks",
+    converter: new RemoveQuotationMarkConverter(),
+  },
+  {
+    id: COMMAND.ReplaceWord,
+    label: "Replace Word",
+    converter: new ReplaceWordConverter(),
   },
   {
     id: COMMAND.UnescapeHtml,
